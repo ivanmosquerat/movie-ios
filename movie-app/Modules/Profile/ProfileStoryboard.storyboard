@@ -10,7 +10,7 @@
         <!--Profile-->
         <scene sceneID="Pjt-K7-EtQ">
             <objects>
-                <viewController id="S9U-g1-5ma" sceneMemberID="viewController">
+                <viewController id="S9U-g1-5ma" customClass="ProfileViewController" customModule="Movies" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QdX-VQ-Gcp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

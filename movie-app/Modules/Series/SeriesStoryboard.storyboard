@@ -10,14 +10,14 @@
         <!--Series-->
         <scene sceneID="IUc-qY-hxh">
             <objects>
-                <viewController id="OU5-iN-g3i" sceneMemberID="viewController">
+                <viewController id="OU5-iN-g3i" customClass="SeriesViewController" customModule="Movies" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WU2-7D-JKm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2uB-va-beh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Series" image="desktopcomputer" catalog="system" id="5jS-nE-Qgp"/>
+                    <tabBarItem key="tabBarItem" title="Series" image="desktopcomputer" catalog="system" id="5jS-nE-Qgp" customClass="Ser"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YgI-WU-7T5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
