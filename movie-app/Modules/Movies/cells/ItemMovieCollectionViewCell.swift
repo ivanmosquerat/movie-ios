@@ -28,7 +28,6 @@ class ItemMovieCollectionViewCell: UICollectionViewCell {
         
         titleLabel.text = movie.title
         voteLabel.text = "Rate: \(movie.voteAverage)"
-        
         posterImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(movie.posterPath)"))
     }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24348BA625091BAD0055F93B /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24348BA525091BAC0055F93B /* ApiRouter.swift */; };
+		24348BA8250A50C70055F93B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24348BA7250A50C70055F93B /* Constants.swift */; };
 		24BADD6C24FE5F5100635CDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BADD6B24FE5F5100635CDA /* AppDelegate.swift */; };
 		24BADD6E24FE5F5100635CDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BADD6D24FE5F5100635CDA /* SceneDelegate.swift */; };
 		24BADD7024FE5F5100635CDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BADD6F24FE5F5100635CDA /* ViewController.swift */; };
@@ -53,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		206CAEA5411D36FE5E9B1571 /* Pods-movie-app-movie-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie-app-movie-appUITests.debug.xcconfig"; path = "Target Support Files/Pods-movie-app-movie-appUITests/Pods-movie-app-movie-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		24348BA525091BAC0055F93B /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
+		24348BA7250A50C70055F93B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		24BADD6824FE5F5100635CDA /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BADD6B24FE5F5100635CDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24BADD6D24FE5F5100635CDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 		24EAA0992507BD2300B756C7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				24348BA525091BAC0055F93B /* ApiRouter.swift */,
+				24348BA7250A50C70055F93B /* Constants.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -560,11 +566,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				24EAA08F25066CAA00B756C7 /* MovieSectionTableViewCell.swift in Sources */,
+				24348BA625091BAD0055F93B /* ApiRouter.swift in Sources */,
 				24BADDA824FE936100635CDA /* SearchViewController.swift in Sources */,
 				24BADD7024FE5F5100635CDA /* ViewController.swift in Sources */,
 				24EAA08B2506653500B756C7 /* Movie.swift in Sources */,
 				24BADD6C24FE5F5100635CDA /* AppDelegate.swift in Sources */,
 				24BADDAA24FE936D00635CDA /* SeriesViewController.swift in Sources */,
+				24348BA8250A50C70055F93B /* Constants.swift in Sources */,
 				24BADDAC24FE938000635CDA /* ProfileViewController.swift in Sources */,
 				24BADD6E24FE5F5100635CDA /* SceneDelegate.swift in Sources */,
 				24EAA0892506634E00B756C7 /* EndPoints.swift in Sources */,

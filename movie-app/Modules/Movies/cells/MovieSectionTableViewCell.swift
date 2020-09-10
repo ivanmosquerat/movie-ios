@@ -11,7 +11,6 @@ import UIKit
 class MovieSectionTableViewCell: UITableViewCell {
     
     // MARK: - Properties
-    private var dataSource = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5" ]
     private var movies:[Movie] = []
     private var cellId = "ItemMovieCollectionViewCell"
     
@@ -41,10 +40,10 @@ class MovieSectionTableViewCell: UITableViewCell {
     }
     
     
-    func setupCellWith(title:String, movies:[Movie]){
+    func setupCellWith(title:String, movies:[String:[Movie]]){
         titleLabel.text = title
-        self.movies = movies
-        //moviesTableView.dataSource = movies as! UITableViewDataSource
+        self.movies = movies[title] ?? [Movie]()
+        collectionView.reloadData()
     }
 }
 

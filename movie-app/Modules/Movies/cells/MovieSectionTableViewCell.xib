@@ -29,7 +29,7 @@
                             <action selector="seeAllButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VBQ-6O-TYe"/>
                         </connections>
                     </button>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0pP-Yy-5ba">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0pP-Yy-5ba">
                         <rect key="frame" x="20" y="58.5" width="633" height="417.5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="u2Q-yK-zZ1">
