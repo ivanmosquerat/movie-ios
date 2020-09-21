@@ -7,3 +7,29 @@
 //
 
 import Foundation
+import Alamofire
+
+struct Constants {
+    struct Server {
+        static let baseUrl = EndPoints.domain
+    }
+}
+
+enum HttpReaderField: String {
+        case authentication = "Authorization"
+        case contentType = "Content-Type"
+        case acceptType = "Accept"
+        case acceptEncoding = "Accept-Encoding"
+        case string = "String"
+}
+
+
+enum ContentType: String {
+    case json = "Application/json"
+    case formEncode = "application/x-www-form-urlencoded"
+}
+
+enum RequestParams {
+    case body(_:Parameters)
+    case url(_:Parameters)
+}

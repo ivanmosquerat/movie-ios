@@ -13,6 +13,16 @@ struct Movie: Codable {
     let title:String
     let original_title: String
     let overview: String
-    let posterPath: String
-    let voteAverage:Double
+    let poster_path: String
+    let vote_average:Double
+    let adult:Bool
+    let genre_ids:[Int]
+    let backdrop_path:String
+    let original_language:String
+    let release_date: String
+    let video:Bool
+    let vote_count:Double
+    let popularity:Double
+    let media_type:String
+    
 }

@@ -56,16 +56,14 @@ class MoviesViewController: UIViewController {
     }
     
     private func getTrendingMovies(){
-        guard let endpoint = URL(string: "https://api.themoviedb.org/3/trending/movie/week?api_key=744dc706fad11b55f470ebbec1761849") else { return }
+        guard let endpoint = URL(string: "\(EndPoints.domain)\(EndPoints.trendingMovie)\(EndPoints.apiKey)") else { return }
         
     
         AF.request(endpoint, method: .get, parameters: nil).responseJSON{ response  in
             
-            
             guard let reponseJson = response.value as? [String: Any], let results = reponseJson as? [String:Any],  let moviesResult = results["results"] as? [[String:Any]] else{
                 return
             }
-            
             
             DispatchQueue.main.async {
                 for item in moviesResult {
@@ -98,6 +96,8 @@ class MoviesViewController: UIViewController {
             }
         }
     }
+    
+    
     
     
     
