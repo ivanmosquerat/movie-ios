@@ -8,21 +8,40 @@
 
 import Foundation
 
-struct Movie: Codable {
+struct Movie: Decodable {
+    let page:Int
+    let results: [MovieData]
+    let total_pages: Int
+    let total_results: Int
+}
+
+struct MovieData: Decodable {
     let id: Int
-    let title:String
-    let original_title: String
-    let overview: String
-    let poster_path: String
-    let vote_average:Double
-    let adult:Bool
-    let genre_ids:[Int]
-    let backdrop_path:String
-    let original_language:String
-    let release_date: String
-    let video:Bool
-    let vote_count:Double
-    let popularity:Double
-    let media_type:String
+    let title,originalTitle,overview,posterPath,backdropPath,originalLanguage, mediaType, releaseDate :String
+    let voteAverage, voteCount, popularity:Double
+    let adult, video:Bool
+    let genreIds:[Int]
+   
+    
+    enum CodingKeys: String, CodingKey{
+        
+        case id
+        case title = "title"
+        case originalTitle = "original_title"
+        case overview = "overview"
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+        case originalLanguage = "original_language"
+        case mediaType = "media_type"
+        case releaseDate = "release_date"
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+        case popularity = "popularity"
+        case adult = "adult"
+        case video = "video"
+        case genreIds = "genre_ids"
+        
+    }
+  
     
 }

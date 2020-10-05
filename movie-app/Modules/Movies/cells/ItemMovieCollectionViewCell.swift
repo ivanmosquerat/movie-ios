@@ -24,11 +24,12 @@ class ItemMovieCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setupCellWith(movie: Movie){
+    func setupCellWith(movie: MovieData){
         
         titleLabel.text = movie.title
         voteLabel.text = "Rate: \(movie.voteAverage)"
         posterImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(movie.posterPath)"))
+
     }
 
 }

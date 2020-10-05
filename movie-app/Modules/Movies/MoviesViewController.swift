@@ -15,11 +15,12 @@ class MoviesViewController: UIViewController {
     
     private let cellId = "MovieSectionTableViewCell"
     private let sectionsTitles = ["Trending","Popular","Rated","Upcoming"]
-    private var sections:[String:[Movie]] = [
-        "Trending":[Movie](),
-        "Popular":[Movie](),
-        "Rated":[Movie](),
-        "Upcoming":[Movie](),
+    
+    private var moviesBySection:[String:[MovieData]] = [
+        "Trending":[MovieData](),
+        "Popular":[MovieData](),
+        "Rated":[MovieData](),
+        "Upcoming":[MovieData](),
     ]
     
     private var trendingMovies:[Movie] = []
@@ -27,6 +28,8 @@ class MoviesViewController: UIViewController {
     private var ratedgMovies:[Movie] = []
     private var latestMovies:[Movie] = []
     private var upcomingMovies:[Movie] = []
+    
+    private var viewModel :  MovieviewModel!
     
     
     // MARK: - Outlets
@@ -39,15 +42,12 @@ class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUi()
-        getTrendingMovies()
-        getPopularMovies()
-        // Do any additional setup after loading the view.
+        callToViewModelForUpdate()
     }
     
 
     //MARK: - Private methods
     private func setupUi(){
-        
         tableview.delegate = self
         tableview.dataSource = self
         tableview.tableFooterView = UIView()
@@ -55,51 +55,42 @@ class MoviesViewController: UIViewController {
         tableview.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
     }
     
-    private func getTrendingMovies(){
-        guard let endpoint = URL(string: "\(EndPoints.domain)\(EndPoints.trendingMovie)\(EndPoints.apiKey)") else { return }
+    private func callToViewModelForUpdate(){
+        viewModel = MovieviewModel()
         
-    
-        AF.request(endpoint, method: .get, parameters: nil).responseJSON{ response  in
-            
-            guard let reponseJson = response.value as? [String: Any], let results = reponseJson as? [String:Any],  let moviesResult = results["results"] as? [[String:Any]] else{
-                return
-            }
-            
-            DispatchQueue.main.async {
-                for item in moviesResult {
-                    
-                    self.sections["Trending"]?.append(Movie(id: item["id"] as! Int, title: item["title"] as! String, original_title: item["original_title"] as! String, overview: item["overview"] as! String, posterPath: item["poster_path"] as! String, voteAverage: item["vote_average"] as! Double))
-                }
-                self.tableview.reloadData()
-            }
+        viewModel.bindTrendingMovieToController = {
+            self.moviesBySection["Trending"]?.append(contentsOf: self.viewModel.trendingMovieData)
+            self.tableview.reloadData()
         }
+        
+//        viewModel.bindPopularMovieController = {
+//            self.moviesBySection["Popular"]?.append(contentsOf: self.viewModel.popularMovieData)
+//            self.tableview.reloadData()
+//        }
     }
+    
     
     private func getPopularMovies(){
-        guard let endpoint = URL(string: "\(EndPoints.domain)\(EndPoints.popularMovie)\(EndPoints.apiKey)") else {
-            return
-        }
-        
-        AF.request(endpoint, method: .get, parameters: nil).responseJSON{ response in
-            
-            guard let responseJson = response.value as? [String:Any], let results = responseJson as? [String:Any], let moviesResult = results["results"] as? [[String:Any]] else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                for item in moviesResult {
-                    self.sections["Popular"]?.append(Movie(id: item["id"] as! Int, title: item["title"] as! String, original_title: item["original_title"] as! String, overview: item["overview"] as! String, posterPath: item["poster_path"] as! String, voteAverage: item["vote_average"] as! Double))
-                }
-                
-                
-                self.tableview.reloadData()
-            }
-        }
+//        guard let endpoint = URL(string: "\(EndPoints.domain)\(EndPoints.popularMovie)\(EndPoints.apiKey)") else {
+//            return
+//        }
+//
+//        AF.request(endpoint, method: .get, parameters: nil).responseJSON{ response in
+//
+//            guard let responseJson = response.value as? [String:Any], let results = responseJson as? [String:Any], let moviesResult = results["results"] as? [[String:Any]] else {
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                for item in moviesResult {
+//                    self.sections["Popular"]?.append(Movie(id: item["id"] as! Int, title: item["title"] as! String, original_title: item["original_title"] as! String, overview: item["overview"] as! String, posterPath: item["poster_path"] as! String, voteAverage: item["vote_average"] as! Double))
+//                }
+//
+//
+//                self.tableview.reloadData()
+//            }
+//        }
     }
-    
-    
-    
-    
     
 }
 
@@ -133,9 +124,9 @@ extension MoviesViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         if let cell = cell as? MovieSectionTableViewCell{
-            cell.setupCellWith(title: sectionsTitles[indexPath.row], movies: sections)
-            
+            cell.setupCellWith(title: sectionsTitles[indexPath.row], movies: moviesBySection)
         }
+        
         return cell
     }
 }

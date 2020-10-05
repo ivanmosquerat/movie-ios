@@ -11,7 +11,8 @@ import Alamofire
 
 struct Constants {
     struct Server {
-        static let baseUrl = EndPoints.domain
+        static let trendingMovies = "\(EndPoints.domain)\(EndPoints.trendingMovie)\(EndPoints.apiKey)"
+        static let popularMovies = "\(EndPoints.domain)\(EndPoints.popularMovie)\(EndPoints.apiKey)"
     }
 }
 
