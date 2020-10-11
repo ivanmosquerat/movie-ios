@@ -21,15 +21,14 @@ class ItemMovieCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
-    func setupCellWith(movie: MovieData){
-        
+    func setupCellWith(movie:MovieData){
+        posterImageView.layer.cornerRadius = 5
+        posterImageView.layer.masksToBounds = true
         titleLabel.text = movie.title
-        voteLabel.text = "Rate: \(movie.voteAverage)"
-        posterImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(movie.posterPath)"))
-
+        voteLabel.text = "Rate: \(movie.voteAverage ?? 0.0)"
+        posterImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(movie.posterPath!)"))
     }
 
 }

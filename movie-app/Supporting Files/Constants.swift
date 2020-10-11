@@ -13,6 +13,8 @@ struct Constants {
     struct Server {
         static let trendingMovies = "\(EndPoints.domain)\(EndPoints.trendingMovie)\(EndPoints.apiKey)"
         static let popularMovies = "\(EndPoints.domain)\(EndPoints.popularMovie)\(EndPoints.apiKey)"
+        static let ratedMovies = "\(EndPoints.domain)\(EndPoints.ratedMovie)\(EndPoints.apiKey)"
+        static let upcomingMovies = "\(EndPoints.domain)\(EndPoints.upcomingMovie)\(EndPoints.apiKey)"
     }
 }
 

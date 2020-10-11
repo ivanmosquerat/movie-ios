@@ -16,12 +16,17 @@ struct Movie: Decodable {
 }
 
 struct MovieData: Decodable {
-    let id: Int
-    let title,originalTitle,overview,posterPath,backdropPath,originalLanguage, mediaType, releaseDate :String
-    let voteAverage, voteCount, popularity:Double
-    let adult, video:Bool
-    let genreIds:[Int]
-   
+    let id, budget, revenue, runtime:Int?
+    let title, originalTitle, overview, posterPath, backdropPath, originalLanguage,
+        mediaType, releaseDate, homepage, imdbId, status, tagline:String?
+    let voteAverage, voteCount, popularity:Double?
+    let adult, video:Bool?
+    let genreIds:[Int]?
+    let genres:[Int]?
+    let belongsToCollection:String?
+    let productionCompanies:[Int]?
+    let productionCountries:[Int]?
+    let spokenLanguages:[Int]?
     
     enum CodingKeys: String, CodingKey{
         
@@ -40,6 +45,18 @@ struct MovieData: Decodable {
         case adult = "adult"
         case video = "video"
         case genreIds = "genre_ids"
+        case budget = "budget"
+        case revenue = "revenue"
+        case runtime = "runtime"
+        case homepage = "homepage"
+        case imdbId = "imdb_id"
+        case status = "status"
+        case tagline = "tagline"
+        case genres = "genres"
+        case belongsToCollection = "belongs_to_collection"
+        case productionCompanies = "production_companies"
+        case productionCountries = "production_countries"
+        case spokenLanguages = "spoken_languages"
         
     }
   

@@ -23,12 +23,6 @@ class MoviesViewController: UIViewController {
         "Upcoming":[MovieData](),
     ]
     
-    private var trendingMovies:[Movie] = []
-    private var popularMovies:[Movie] = []
-    private var ratedgMovies:[Movie] = []
-    private var latestMovies:[Movie] = []
-    private var upcomingMovies:[Movie] = []
-    
     private var viewModel :  MovieviewModel!
     
     
@@ -63,34 +57,22 @@ class MoviesViewController: UIViewController {
             self.tableview.reloadData()
         }
         
-//        viewModel.bindPopularMovieController = {
-//            self.moviesBySection["Popular"]?.append(contentsOf: self.viewModel.popularMovieData)
-//            self.tableview.reloadData()
-//        }
+        viewModel.bindPopularMovieController = {
+            self.moviesBySection["Popular"]?.append(contentsOf: self.viewModel.popularMovieData)
+            self.tableview.reloadData()
+        }
+        
+        viewModel.bindRatedMovieController = {
+            self.moviesBySection["Rated"]?.append(contentsOf: self.viewModel.ratedMovieData)
+            self.tableview.reloadData()
+        }
+        
+        viewModel.bindUpcomingMovieController = {
+            self.moviesBySection["Upcoming"]?.append(contentsOf: self.viewModel.upcomingMovieData)
+            self.tableview.reloadData()
+        }
     }
     
-    
-    private func getPopularMovies(){
-//        guard let endpoint = URL(string: "\(EndPoints.domain)\(EndPoints.popularMovie)\(EndPoints.apiKey)") else {
-//            return
-//        }
-//
-//        AF.request(endpoint, method: .get, parameters: nil).responseJSON{ response in
-//
-//            guard let responseJson = response.value as? [String:Any], let results = responseJson as? [String:Any], let moviesResult = results["results"] as? [[String:Any]] else {
-//                return
-//            }
-//
-//            DispatchQueue.main.async {
-//                for item in moviesResult {
-//                    self.sections["Popular"]?.append(Movie(id: item["id"] as! Int, title: item["title"] as! String, original_title: item["original_title"] as! String, overview: item["overview"] as! String, posterPath: item["poster_path"] as! String, voteAverage: item["vote_average"] as! Double))
-//                }
-//
-//
-//                self.tableview.reloadData()
-//            }
-//        }
-    }
     
 }
 

@@ -145,6 +145,21 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		24B10515252DE4DC00AD02BB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		24B10516252DE4E500AD02BB /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				24EAA08A2506653500B756C7 /* Movie.swift */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
 		24BADD5F24FE5F5100635CDA = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +231,7 @@
 		24BADD9C24FE78F100635CDA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				24348BA7250A50C70055F93B /* Constants.swift */,
 				24BADD6B24FE5F5100635CDA /* AppDelegate.swift */,
 				24BADD6D24FE5F5100635CDA /* SceneDelegate.swift */,
 				24BADD7624FE5F5E00635CDA /* LaunchScreen.storyboard */,
@@ -278,7 +294,8 @@
 		24BADDA324FE879C00635CDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				24EAA08A2506653500B756C7 /* Movie.swift */,
+				24B10516252DE4E500AD02BB /* Structures */,
+				24B10515252DE4DC00AD02BB /* Protocols */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,7 +325,6 @@
 			children = (
 				24348BA525091BAC0055F93B /* ApiRouter.swift */,
 				2468EBE825177A45004B83FC /* ApiConfiguration.swift */,
-				24348BA7250A50C70055F93B /* Constants.swift */,
 				24EA709C252A067700FAA8D7 /* ApiService.swift */,
 			);
 			path = Network;
