@@ -32,7 +32,7 @@
                         </connections>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0pP-Yy-5ba">
-                        <rect key="frame" x="20" y="58.5" width="633" height="426.5"/>
+                        <rect key="frame" x="0.0" y="58.5" width="673" height="426.5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AhG-ei-CyJ">
                             <size key="itemSize" width="250" height="350"/>
@@ -46,10 +46,10 @@
                     <constraint firstItem="v3c-5U-gnE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="4uH-Lf-qPh"/>
                     <constraint firstItem="0pP-Yy-5ba" firstAttribute="top" secondItem="JR2-AT-qxj" secondAttribute="bottom" constant="5" id="D7O-G2-Cjo"/>
                     <constraint firstAttribute="bottomMargin" secondItem="0pP-Yy-5ba" secondAttribute="bottom" constant="5" id="Hht-c5-Zul"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="0pP-Yy-5ba" secondAttribute="trailing" id="MSL-SI-f96"/>
+                    <constraint firstItem="0pP-Yy-5ba" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="OVY-jU-ztX"/>
                     <constraint firstItem="JR2-AT-qxj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Tiy-zI-swD"/>
-                    <constraint firstItem="0pP-Yy-5ba" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Tl1-gw-NgS"/>
                     <constraint firstAttribute="trailing" secondItem="v3c-5U-gnE" secondAttribute="trailing" constant="20" id="akS-HG-HxV"/>
+                    <constraint firstAttribute="trailing" secondItem="0pP-Yy-5ba" secondAttribute="trailing" id="quT-dw-rft"/>
                     <constraint firstItem="JR2-AT-qxj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="xao-JB-tTo"/>
                 </constraints>
             </tableViewCellContentView>

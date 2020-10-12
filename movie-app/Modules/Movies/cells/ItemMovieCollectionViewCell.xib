@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.on.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vmQ-m3-rfr">
-                        <rect key="frame" x="0.0" y="-1.5" width="250" height="295"/>
+                        <rect key="frame" x="20" y="-1.5" width="230" height="295"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWo-2Z-47O">
-                        <rect key="frame" x="0.0" y="327" width="250" height="18"/>
+                        <rect key="frame" x="20" y="327" width="230" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="EED-n6-4or"/>
                         </constraints>
@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdQ-AS-chb">
-                        <rect key="frame" x="0.0" y="296" width="250" height="21"/>
+                        <rect key="frame" x="20" y="296" width="230" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="ePZ-O1-YF0"/>
                         </constraints>
@@ -44,14 +44,14 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="aWo-2Z-47O" secondAttribute="bottom" constant="5" id="43C-W4-XQe"/>
                 <constraint firstItem="vmQ-m3-rfr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="F22-fL-O7c"/>
-                <constraint firstItem="VdQ-AS-chb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Gj0-4f-yYl"/>
+                <constraint firstItem="VdQ-AS-chb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Gj0-4f-yYl"/>
                 <constraint firstAttribute="trailing" secondItem="VdQ-AS-chb" secondAttribute="trailing" id="Ivt-JX-ZNG"/>
                 <constraint firstItem="VdQ-AS-chb" firstAttribute="top" secondItem="vmQ-m3-rfr" secondAttribute="bottom" constant="5" id="Mlx-gk-2Hw"/>
                 <constraint firstItem="aWo-2Z-47O" firstAttribute="top" secondItem="VdQ-AS-chb" secondAttribute="bottom" constant="10" id="Un8-8m-LmI"/>
-                <constraint firstItem="aWo-2Z-47O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XTB-US-kBA"/>
+                <constraint firstItem="aWo-2Z-47O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="XTB-US-kBA"/>
                 <constraint firstItem="aWo-2Z-47O" firstAttribute="top" secondItem="VdQ-AS-chb" secondAttribute="bottom" constant="10" id="aSt-7Z-f69"/>
                 <constraint firstAttribute="trailing" secondItem="aWo-2Z-47O" secondAttribute="trailing" id="bAL-s4-Pw8"/>
-                <constraint firstItem="vmQ-m3-rfr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="po9-UY-Kpq"/>
+                <constraint firstItem="vmQ-m3-rfr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="po9-UY-Kpq"/>
                 <constraint firstAttribute="trailing" secondItem="vmQ-m3-rfr" secondAttribute="trailing" id="xn9-Rd-81q"/>
             </constraints>
             <size key="customSize" width="219" height="316"/>

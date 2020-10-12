@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 
+
 class MovieviewModel: NSObject {
     
     private var apiService : ApiService!
@@ -56,7 +57,6 @@ class MovieviewModel: NSObject {
         
         self.apiService.getMovieBySection(completion: { (trendingMovieData) in
             self.trendingMovieData = trendingMovieData
-            
         }, url: Constants.Server.trendingMovies)
     }
     
@@ -64,7 +64,6 @@ class MovieviewModel: NSObject {
         
         self.apiService.getMovieBySection(completion: { (popularMovieData) in
             self.popularMovieData = popularMovieData
-            
         }, url: Constants.Server.popularMovies)
     }
     
