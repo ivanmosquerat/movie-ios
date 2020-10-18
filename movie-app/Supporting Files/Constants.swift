@@ -15,6 +15,14 @@ struct Constants {
         static let popularMovies = "\(EndPoints.domain)\(EndPoints.popularMovie)\(EndPoints.apiKey)"
         static let ratedMovies = "\(EndPoints.domain)\(EndPoints.ratedMovie)\(EndPoints.apiKey)"
         static let upcomingMovies = "\(EndPoints.domain)\(EndPoints.upcomingMovie)\(EndPoints.apiKey)"
+        
+        struct Movies {}
+        
+        struct Series {
+            static let trendingSeries = "\(EndPoints.domain)\(EndPoints.Series.trendingSeries)\(EndPoints.apiKey)"
+            static let popularSeries = "\(EndPoints.domain)\(EndPoints.Series.popularSeries)\(EndPoints.apiKey)"
+            static let ratedSeries = "\(EndPoints.domain)\(EndPoints.Series.ratedSeries)\(EndPoints.apiKey)"
+        }
     }
 }
 

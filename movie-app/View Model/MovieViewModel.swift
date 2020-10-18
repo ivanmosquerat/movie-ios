@@ -12,7 +12,12 @@ import Alamofire
 
 class MovieviewModel: NSObject {
     
+    // MARK: - Properties
     private var apiService : ApiService!
+    var bindTrendingMovieToController : (() -> ()) = {}
+    var bindPopularMovieController : (() -> ()) = {}
+    var bindRatedMovieController : (() -> ()) = {}
+    var bindUpcomingMovieController : (() -> ()) = {}
     
     private (set) var trendingMovieData:[MovieData]! {
         didSet{
@@ -38,10 +43,7 @@ class MovieviewModel: NSObject {
         }
     }
     
-    var bindTrendingMovieToController : (() -> ()) = {}
-    var bindPopularMovieController : (() -> ()) = {}
-    var bindRatedMovieController : (() -> ()) = {}
-    var bindUpcomingMovieController : (() -> ()) = {}
+    // MARK: - Init
     
     override init() {
         super.init()
@@ -52,6 +54,7 @@ class MovieviewModel: NSObject {
         getMoviesUpcoming()
     }
     
+    // MARK: - Public methods
     
     func getTrendingMovies(){
         

@@ -33,6 +33,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Series" id="Opv-0Z-PM0"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableViewSeries" destination="tCK-uc-HRb" id="b6B-p0-hqy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YgI-WU-7T5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

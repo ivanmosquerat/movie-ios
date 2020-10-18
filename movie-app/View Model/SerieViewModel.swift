@@ -7,3 +7,53 @@
 //
 
 import Foundation
+import Alamofire
+
+class SerieViewModel: NSObject {
+    
+    // MARK: - Properties
+    private var apiService: ApiService!
+    var bindTrendingSerieToController : (() -> ()) = {}
+    var bindPopularSerieToController : (() -> ()) = {}
+    var bindRatedSerieToController : (() -> ()) = {}
+    
+    private (set) var trendingSerieData:[SerieData]!{
+        didSet{
+            self.bindTrendingSerieToController()
+        }
+    }
+    
+    private (set) var popularSerieData:[SerieData]!{
+        didSet{
+            self.bindPopularSerieToController()
+        }
+    }
+    
+    private (set) var ratedSerieData:[SerieData]!{
+        didSet{
+            self.bindRatedSerieToController()
+        }
+    }
+    
+    // MARK: - Init
+    override init(){
+        super.init()
+        self.apiService = ApiService()
+        getTrendingSeries()
+        getPopularSeries()
+        getRatedSeries()
+    }
+    
+    // MARK: - Public methods
+    func getTrendingSeries(){
+        self.apiService.getSeriesBySection(completion: {(trendingSerieData) in self.trendingSerieData = trendingSerieData}, url: Constants.Server.Series.trendingSeries)
+    }
+    
+    func getPopularSeries(){
+        self.apiService.getSeriesBySection(completion: {(popularSerieData) in self.popularSerieData = popularSerieData}, url: Constants.Server.Series.popularSeries)
+    }
+    
+    func getRatedSeries(){
+        self.apiService.getSeriesBySection(completion: {(ratedSerieData) in self.ratedSerieData = ratedSerieData}, url: Constants.Server.Series.ratedSeries)
+    }
+}

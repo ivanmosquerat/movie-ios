@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import SVProgressHUD
 
 class MoviesViewController: UIViewController {
     // MARK: - Properties
@@ -23,7 +21,7 @@ class MoviesViewController: UIViewController {
         "Upcoming":[MovieData](),
     ]
     
-    private var viewModel :  MovieviewModel!
+    private var viewModel: MovieviewModel!
     
     
     // MARK: - Outlets

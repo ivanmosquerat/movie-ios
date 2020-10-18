@@ -47,6 +47,11 @@
                 <constraint firstItem="eDH-JV-6Q3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="kwP-Am-imK"/>
                 <constraint firstItem="uOG-Sx-PXD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="mR5-sP-5si"/>
             </constraints>
+            <connections>
+                <outlet property="posterImageView" destination="eDH-JV-6Q3" id="d2B-wq-VZ0"/>
+                <outlet property="titleLabel" destination="uOG-Sx-PXD" id="nsY-lX-Kfz"/>
+                <outlet property="voteLabel" destination="kDg-l0-qVK" id="1a3-HW-Pav"/>
+            </connections>
             <point key="canvasLocation" x="66.666666666666671" y="82.366071428571431"/>
         </collectionViewCell>
     </objects>
