@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Movie: Decodable {
+struct Movie: Codable {
     let page:Int
     let results: [MovieData]
     let total_pages: Int
     let total_results: Int
 }
 
-struct MovieData: Decodable {
+struct MovieData: Codable {
     let id, budget, revenue, runtime:Int?
     let title, originalTitle, overview, posterPath, backdropPath, originalLanguage,
         mediaType, releaseDate, homepage, imdbId, status, tagline:String?
@@ -28,6 +28,9 @@ struct MovieData: Decodable {
     let productionCountries:[Int]?
     let spokenLanguages:[Int]?
     
+    static var `default`:MovieData{
+        .init(id: 0, budget: 0, revenue: 0, runtime: 0, title: "", originalTitle: "", overview: "", posterPath: "", backdropPath: "", originalLanguage: "", mediaType: "", releaseDate: "", homepage: "", imdbId: "", status: "", tagline: "", voteAverage: 0.0, voteCount: 0.0, popularity: 0.0, adult: true, video: false, genreIds: [0], genres: [0], belongsToCollection: "", productionCompanies: [0], productionCountries: [0], spokenLanguages: [0])
+    }
     enum CodingKeys: String, CodingKey{
         
         case id

@@ -26,10 +26,9 @@ class MovieSectionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    
         collectionView.delegate = self
         collectionView.dataSource = self
-        
         collectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
     }
 
@@ -38,8 +37,7 @@ class MovieSectionTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    
+
     func setupCellWith(title:String, movies:[String:[MovieData]]){
         titleLabel.text = title
         self.movies = movies[title] ?? [MovieData]()
@@ -47,9 +45,45 @@ class MovieSectionTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - Navigation
+extension MovieSectionTableViewCell{
+    
+    //showMovieDetail
+    //override func pr
+    var referenceMoviesTableViewController: MoviesViewController? {
+        
+        var parentResponder: UIResponder = self
+        while parentResponder != nil{
+            parentResponder = parentResponder.next!
+            if let viewController = parentResponder as? MoviesViewController {
+                return viewController
+            }
+            
+        }
+        
+        return nil
+    }
+    
+}
+
 // MARK: - UICollectionViewDelegate
 extension MovieSectionTableViewCell:UICollectionViewDelegate{
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let tableController = referenceMoviesTableViewController {
+            tableController.performSegue(withIdentifier: "showMovieDetail", sender: nil)
+        }
+        
+        DispatchQueue.main.async {
+            let destination = MoviesDetailsViewController()
+            destination.movie = self.movies[indexPath.row]
+                //destination.path = semovies[indexPath.row].posterPath!
+        }
+        
+        
+        debugPrint(movies[indexPath.row].title!)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -70,7 +104,6 @@ extension MovieSectionTableViewCell:UICollectionViewDataSource{
         
         return cell
     }
-    
     
 }
 
