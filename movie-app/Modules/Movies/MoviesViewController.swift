@@ -11,17 +11,17 @@ import UIKit
 class MoviesViewController: UIViewController {
     // MARK: - Properties
     
+    private let segueIdentifierToMovieDetail = "showMovieDetail"
     private let cellId = "MovieSectionTableViewCell"
     private let sectionsTitles = ["Trending","Popular","Rated","Upcoming"]
-    
     private var moviesBySection:[String:[MovieData]] = [
         "Trending":[MovieData](),
         "Popular":[MovieData](),
         "Rated":[MovieData](),
         "Upcoming":[MovieData](),
     ]
-    
     private var viewModel: MovieviewModel!
+    private var movieSelectedOnCollection:MovieData = MovieData.default
     
     
     // MARK: - Outlets
@@ -78,9 +78,13 @@ class MoviesViewController: UIViewController {
 extension MoviesViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       // Get the new view controller using segue.destination.
-       // Pass the selected object to the new view controller.
+        
+        if segue.identifier == segueIdentifierToMovieDetail, let movieDetailViewController = segue.destination as? MoviesDetailsViewController{
+            
+            movieDetailViewController.movie = movieSelectedOnCollection
+        }
    }
+    
 }
 
 //MARK: - UITableViewDelegate
@@ -103,7 +107,13 @@ extension MoviesViewController: UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
+        
         if let cell = cell as? MovieSectionTableViewCell{
+            
+            cell.clousureMovieSelected = { movie in
+                self.movieSelectedOnCollection = movie
+            }
+            
             cell.setupCellWith(title: sectionsTitles[indexPath.row], movies: moviesBySection)
         }
         

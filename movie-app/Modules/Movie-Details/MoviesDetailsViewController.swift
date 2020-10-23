@@ -13,15 +13,19 @@ class MoviesDetailsViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var voteLabel: UILabel!
     
     // MARK: - Properties
     var movie:MovieData = MovieData.default
     
-    var path = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUi()
-        // Do any additional setup after loading the view.
+        
     }
     
     // MARK: - Methods
@@ -29,6 +33,12 @@ class MoviesDetailsViewController: UIViewController {
         posterImageView.layer.cornerRadius = 5
         posterImageView.layer.masksToBounds = true
         posterImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(movie.posterPath!)"))
+        
+        titleLabel.text = movie.title
+        yearLabel.text = movie.releaseDate
+        //genreLabel.text = movie.genres
+        durationLabel.text = "\(movie.runtime ?? 0) minutes"
+        voteLabel.text = "\(movie.voteAverage!)"
     }
     
 

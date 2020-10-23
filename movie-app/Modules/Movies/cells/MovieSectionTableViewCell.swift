@@ -13,6 +13,7 @@ class MovieSectionTableViewCell: UITableViewCell {
     // MARK: - Properties
     private var movies:[MovieData] = []
     private var cellId = "ItemMovieCollectionViewCell"
+    var clousureMovieSelected:((_ movie:MovieData)-> Void)?
     
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -48,19 +49,16 @@ class MovieSectionTableViewCell: UITableViewCell {
 // MARK: - Navigation
 extension MovieSectionTableViewCell{
     
-    //showMovieDetail
-    //override func pr
     var referenceMoviesTableViewController: MoviesViewController? {
         
         var parentResponder: UIResponder = self
         while parentResponder != nil{
             parentResponder = parentResponder.next!
             if let viewController = parentResponder as? MoviesViewController {
+                
                 return viewController
             }
-            
         }
-        
         return nil
     }
     
@@ -72,17 +70,14 @@ extension MovieSectionTableViewCell:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if let tableController = referenceMoviesTableViewController {
+            
+            if clousureMovieSelected != nil{
+                clousureMovieSelected!(self.movies[indexPath.row])
+            }
+            
             tableController.performSegue(withIdentifier: "showMovieDetail", sender: nil)
         }
         
-        DispatchQueue.main.async {
-            let destination = MoviesDetailsViewController()
-            destination.movie = self.movies[indexPath.row]
-                //destination.path = semovies[indexPath.row].posterPath!
-        }
-        
-        
-        debugPrint(movies[indexPath.row].title!)
     }
 }
 
