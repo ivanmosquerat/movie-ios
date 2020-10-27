@@ -39,6 +39,11 @@ class ApiService: NSObject {
         }
     }
     
+    
+    func getMovieCast(){
+        // TODO: Traer los creditos de la movie y tomar solo el cast.
+    }
+    
     // MARK: - Series methods
     
     func getSeriesBySection(completion: @escaping ([SerieData]) -> (), url: String){
