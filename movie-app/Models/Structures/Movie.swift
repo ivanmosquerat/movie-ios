@@ -16,11 +16,27 @@ struct Movie: Codable {
 }
 
 struct MovieData: Codable {
-    let id, budget, revenue, runtime:Int?
-    let title, originalTitle, overview, posterPath, backdropPath, originalLanguage,
-        mediaType, releaseDate, homepage, imdbId, status, tagline:String?
-    let voteAverage, voteCount, popularity:Double?
-    let adult, video:Bool?
+    let id,
+        budget,
+        revenue,
+        runtime:Int?
+    let title,
+        originalTitle,
+        overview,
+        posterPath,
+        backdropPath,
+        originalLanguage,
+        mediaType,
+        releaseDate,
+        homepage,
+        imdbId,
+        status,
+        tagline:String?
+    let voteAverage,
+        voteCount,
+        popularity:Double?
+    let adult,
+        video:Bool?
     let genreIds:[Int]?
     let genres:[Int]?
     let belongsToCollection:String?
@@ -31,6 +47,7 @@ struct MovieData: Codable {
     static var `default`:MovieData{
         .init(id: 0, budget: 0, revenue: 0, runtime: 0, title: "", originalTitle: "", overview: "", posterPath: "", backdropPath: "", originalLanguage: "", mediaType: "", releaseDate: "", homepage: "", imdbId: "", status: "", tagline: "", voteAverage: 0.0, voteCount: 0.0, popularity: 0.0, adult: true, video: false, genreIds: [0], genres: [0], belongsToCollection: "", productionCompanies: [0], productionCountries: [0], spokenLanguages: [0])
     }
+    
     enum CodingKeys: String, CodingKey{
         
         case id

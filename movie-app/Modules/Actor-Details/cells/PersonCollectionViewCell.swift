@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Kingfisher
 
-class ActorCollectionViewCell: UICollectionViewCell {
+class PersonCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Outlets
     @IBOutlet weak var photoImageview: UIImageView!
@@ -16,13 +17,17 @@ class ActorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var characterLabel: UILabel!
     
     // MARK: - Properties
+//    var personSelected:CastMember = CastMember.default
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    func setupCellWith(){
-        // TODO: Recibe un tipo Actor y configura los valores de los componentes.
+    func setupCellWith(personSelected:CastMember){
+        photoImageview.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(personSelected.profilePath!)"))
+        nameLabel.text = personSelected.name
+        characterLabel.text = personSelected.character
+        
     }
 }

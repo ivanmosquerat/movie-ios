@@ -28,7 +28,11 @@ class MoviesDetailsViewController: UIViewController {
     // MARK: - Properties
     var movie:MovieData = MovieData.default
     var movieYearRelease:String = ""
+    var movieCredits: MovieCredits =  MovieCredits.default
+    var castDataSource : [CastMember] = []
+    var crewDataSource : [CrewMember] = []
     private var cellId = "ActorCollectionViewCell"
+    private var viewModel: MovieviewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +40,7 @@ class MoviesDetailsViewController: UIViewController {
         castCollectionView.dataSource = self
         castCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
         setupUi()
-        
+        callViewModelForUpdates(id: movie.id ?? 0)
     }
     
     // MARK: - Methods
@@ -62,10 +66,29 @@ class MoviesDetailsViewController: UIViewController {
         horizontalStackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         horizontalStackView.isLayoutMarginsRelativeArrangement = true
         horizontalStackView.layer.masksToBounds = true
+        
+        overviewTextView.text = movie.overview ?? "Overview not avaliable"
+        languageLabel.text = "Original language: \(movie.originalLanguage ?? "N/A")"
+        statusLabel.text = movie.status ?? "Status not avaliable"
     }
     
-    private func setupCastCollection(){}
+    private func callViewModelForUpdates(id:Int){
+        viewModel = MovieviewModel(movieId: id)
+        
+        viewModel.bindMovieCreditsController = {
+            self.movieCredits = self.viewModel.movieCreditsData
+            self.setupCastCollection(movieCredits: self.movieCredits)
+            self.castCollectionView.reloadData()
+        }
+    }
     
+    private func setupCastCollection(movieCredits:MovieCredits){
+        if let castArray = movieCredits.cast as? [CastMember] {
+            for cast in castArray {
+                castDataSource.append(CastMember(id: cast.id, castId: cast.castId, gender: cast.gender, order: cast.order, character: cast.character, creditId: cast.creditId, name: cast.name, profilePath: cast.profilePath))
+            }
+        }
+    }
 }
 
 // MARK: - UICollectionView delegate
@@ -77,16 +100,15 @@ extension MoviesDetailsViewController: UICollectionViewDelegate{
 extension MoviesDetailsViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        1
+        castDataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
-        if let cell = cell as? ActorCollectionViewCell{
-            //TODO: Set up los valores de la celda.
+        if let cell = cell as? PersonCollectionViewCell{
+            cell.setupCellWith(personSelected: castDataSource[indexPath.row])
         }
         
         return cell

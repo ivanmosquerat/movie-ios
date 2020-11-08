@@ -70,24 +70,24 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mV-rM-tGE">
-                                        <rect key="frame" x="20" y="454" width="374" height="128"/>
+                                        <rect key="frame" x="20" y="439" width="374" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="HSi-lM-FGE"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV4-Yv-Xs8">
-                                        <rect key="frame" x="20" y="602" width="374" height="24"/>
+                                        <rect key="frame" x="20" y="577" width="374" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vIS-SU-zrY">
-                                        <rect key="frame" x="20" y="636" width="374" height="500"/>
+                                        <rect key="frame" x="20" y="611" width="374" height="500"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="500" id="Gus-KW-Mrr"/>
@@ -101,7 +101,7 @@
                                         <cells/>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keywords" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elD-L8-Sn2">
-                                        <rect key="frame" x="20" y="1156" width="374" height="24"/>
+                                        <rect key="frame" x="20" y="1131" width="374" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -139,7 +139,7 @@
                                     <constraint firstItem="AIn-Qs-OLx" firstAttribute="trailing" secondItem="5Ez-m9-v6n" secondAttribute="trailing" constant="20" id="1j9-18-vwO"/>
                                     <constraint firstItem="Gcm-ZW-TnQ" firstAttribute="top" secondItem="AIn-Qs-OLx" secondAttribute="top" constant="20" id="GyN-Bc-6ey"/>
                                     <constraint firstAttribute="trailing" secondItem="5Ez-m9-v6n" secondAttribute="trailing" constant="20" id="HgG-qu-6qH"/>
-                                    <constraint firstItem="aV4-Yv-Xs8" firstAttribute="top" secondItem="2mV-rM-tGE" secondAttribute="bottom" constant="20" id="Nbv-xm-IBK"/>
+                                    <constraint firstItem="aV4-Yv-Xs8" firstAttribute="top" secondItem="2mV-rM-tGE" secondAttribute="bottom" constant="10" id="Nbv-xm-IBK"/>
                                     <constraint firstItem="aV4-Yv-Xs8" firstAttribute="leading" secondItem="AIn-Qs-OLx" secondAttribute="leading" constant="20" id="Q9d-tY-D3e"/>
                                     <constraint firstItem="2mV-rM-tGE" firstAttribute="leading" secondItem="AIn-Qs-OLx" secondAttribute="leading" constant="20" id="QXd-r9-lup"/>
                                     <constraint firstItem="AIn-Qs-OLx" firstAttribute="trailing" secondItem="aV4-Yv-Xs8" secondAttribute="trailing" constant="20" id="R2t-aZ-9LB"/>
@@ -159,7 +159,7 @@
                                     <constraint firstItem="AIn-Qs-OLx" firstAttribute="trailing" secondItem="pTv-HE-v9P" secondAttribute="trailing" constant="20" id="pio-ca-Hh9"/>
                                     <constraint firstItem="elD-L8-Sn2" firstAttribute="leading" secondItem="AIn-Qs-OLx" secondAttribute="leading" constant="20" id="qu8-jg-nDd"/>
                                     <constraint firstItem="vIS-SU-zrY" firstAttribute="top" secondItem="aV4-Yv-Xs8" secondAttribute="bottom" constant="10" id="tYC-qJ-9LN"/>
-                                    <constraint firstItem="2mV-rM-tGE" firstAttribute="top" secondItem="0qu-bb-CtU" secondAttribute="bottom" constant="20" id="xVL-4a-JRB"/>
+                                    <constraint firstItem="2mV-rM-tGE" firstAttribute="top" secondItem="0qu-bb-CtU" secondAttribute="bottom" constant="5" id="xVL-4a-JRB"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="bwa-Vd-cUq"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="AIn-Qs-OLx"/>

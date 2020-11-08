@@ -18,6 +18,7 @@ class MovieviewModel: NSObject {
     var bindPopularMovieController : (() -> ()) = {}
     var bindRatedMovieController : (() -> ()) = {}
     var bindUpcomingMovieController : (() -> ()) = {}
+    var bindMovieCreditsController : (() -> ()) = {}
     
     private (set) var trendingMovieData:[MovieData]! {
         didSet{
@@ -43,6 +44,12 @@ class MovieviewModel: NSObject {
         }
     }
     
+    private (set) var movieCreditsData: MovieCredits! {
+        didSet{
+            self.bindMovieCreditsController()
+        }
+    }
+    
     // MARK: - Init
     
     override init() {
@@ -52,6 +59,11 @@ class MovieviewModel: NSObject {
         getPopularMovies()
         getRatedMovies()
         getMoviesUpcoming()
+    }
+    
+    init(movieId:Int) {
+        super.init()
+        getMovieCredits(movieId: movieId)
     }
     
     // MARK: - Public methods
@@ -81,5 +93,14 @@ class MovieviewModel: NSObject {
         self.apiService.getMovieBySection(completion: {(upcomingMovieData) in
             self.upcomingMovieData = upcomingMovieData
         }, url: Constants.Server.upcomingMovies)
+    }
+    
+    func getMovieCredits(movieId:Int){
+        
+        self.apiService.getMovieCredits(completion: {(movieCreditsData) in
+            
+            self.movieCreditsData = movieCreditsData
+            
+        }, url: "\(EndPoints.Movies.movieBase)\(movieId)\(EndPoints.Movies.movieCredits)\(EndPoints.apiKey)")
     }
 }

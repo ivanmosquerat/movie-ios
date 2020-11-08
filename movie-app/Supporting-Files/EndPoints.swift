@@ -18,7 +18,11 @@ struct EndPoints {
     static let popularMovie = "movie/popular"
     static let ratedMovie = "movie/top_rated"
     static let upcomingMovie = "movie/upcoming"
-    struct Movies {}
+    
+    struct Movies {
+        static let movieBase = "https://api.themoviedb.org/3/movie/"
+        static let movieCredits = "/credits"
+    }
     
     struct Series {
         static let trendingSeries = "trending/tv/week"
