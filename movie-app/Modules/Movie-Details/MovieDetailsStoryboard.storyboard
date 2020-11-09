@@ -87,13 +87,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vIS-SU-zrY">
-                                        <rect key="frame" x="20" y="611" width="374" height="500"/>
+                                        <rect key="frame" x="20" y="611" width="374" height="200"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="500" id="Gus-KW-Mrr"/>
+                                            <constraint firstAttribute="height" constant="200" id="Gus-KW-Mrr"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nf4-cf-duh">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nf4-cf-duh">
                                             <size key="itemSize" width="128" height="200"/>
+                                            <size key="estimatedItemSize" width="128" height="200"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -101,7 +102,7 @@
                                         <cells/>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keywords" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elD-L8-Sn2">
-                                        <rect key="frame" x="20" y="1131" width="374" height="24"/>
+                                        <rect key="frame" x="20" y="831" width="374" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -138,19 +139,19 @@
                                     <constraint firstItem="5Ez-m9-v6n" firstAttribute="leading" secondItem="Gcm-ZW-TnQ" secondAttribute="trailing" constant="20" id="1PA-qQ-5qw"/>
                                     <constraint firstItem="AIn-Qs-OLx" firstAttribute="trailing" secondItem="5Ez-m9-v6n" secondAttribute="trailing" constant="20" id="1j9-18-vwO"/>
                                     <constraint firstItem="Gcm-ZW-TnQ" firstAttribute="top" secondItem="AIn-Qs-OLx" secondAttribute="top" constant="20" id="GyN-Bc-6ey"/>
-                                    <constraint firstAttribute="trailing" secondItem="5Ez-m9-v6n" secondAttribute="trailing" constant="20" id="HgG-qu-6qH"/>
                                     <constraint firstItem="aV4-Yv-Xs8" firstAttribute="top" secondItem="2mV-rM-tGE" secondAttribute="bottom" constant="10" id="Nbv-xm-IBK"/>
                                     <constraint firstItem="aV4-Yv-Xs8" firstAttribute="leading" secondItem="AIn-Qs-OLx" secondAttribute="leading" constant="20" id="Q9d-tY-D3e"/>
                                     <constraint firstItem="2mV-rM-tGE" firstAttribute="leading" secondItem="AIn-Qs-OLx" secondAttribute="leading" constant="20" id="QXd-r9-lup"/>
                                     <constraint firstItem="AIn-Qs-OLx" firstAttribute="trailing" secondItem="aV4-Yv-Xs8" secondAttribute="trailing" constant="20" id="R2t-aZ-9LB"/>
                                     <constraint firstItem="vIS-SU-zrY" firstAttribute="leading" secondItem="AIn-Qs-OLx" secondAttribute="leading" constant="20" id="RW9-kf-7xd"/>
                                     <constraint firstItem="pTv-HE-v9P" firstAttribute="top" secondItem="Gcm-ZW-TnQ" secondAttribute="bottom" constant="20" id="TYf-aF-34T"/>
+                                    <constraint firstAttribute="trailing" secondItem="elD-L8-Sn2" secondAttribute="trailing" id="Wpp-mr-et0"/>
                                     <constraint firstItem="5Ez-m9-v6n" firstAttribute="top" secondItem="AIn-Qs-OLx" secondAttribute="top" constant="20" id="WtS-gc-nkQ"/>
                                     <constraint firstItem="0qu-bb-CtU" firstAttribute="leading" secondItem="AIn-Qs-OLx" secondAttribute="leading" constant="20" id="ZXQ-lO-YXQ"/>
                                     <constraint firstItem="AIn-Qs-OLx" firstAttribute="trailing" secondItem="2mV-rM-tGE" secondAttribute="trailing" constant="20" id="bio-Fe-Ea3"/>
+                                    <constraint firstAttribute="bottom" secondItem="elD-L8-Sn2" secondAttribute="bottom" constant="-37" id="cFI-G1-8KB"/>
                                     <constraint firstItem="AIn-Qs-OLx" firstAttribute="trailing" secondItem="elD-L8-Sn2" secondAttribute="trailing" constant="20" id="cLV-Xh-Kzc"/>
                                     <constraint firstItem="Gcm-ZW-TnQ" firstAttribute="leading" secondItem="AIn-Qs-OLx" secondAttribute="leading" constant="20" id="dRD-7p-ndE"/>
-                                    <constraint firstAttribute="bottom" secondItem="Gcm-ZW-TnQ" secondAttribute="bottom" constant="548" id="erZ-VW-Jk6"/>
                                     <constraint firstItem="AIn-Qs-OLx" firstAttribute="trailing" secondItem="vIS-SU-zrY" secondAttribute="trailing" constant="20" id="fiy-Kd-3Wt"/>
                                     <constraint firstItem="pTv-HE-v9P" firstAttribute="leading" secondItem="AIn-Qs-OLx" secondAttribute="leading" constant="20" id="gaG-Lq-msM"/>
                                     <constraint firstItem="AIn-Qs-OLx" firstAttribute="trailing" secondItem="0qu-bb-CtU" secondAttribute="trailing" constant="20" id="jUm-3W-BAJ"/>
@@ -168,10 +169,10 @@
                         <viewLayoutGuide key="safeArea" id="Ufh-Gj-0yT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Dom-cw-rys" secondAttribute="trailing" id="3rS-6d-VSD"/>
-                            <constraint firstItem="Ufh-Gj-0yT" firstAttribute="bottom" secondItem="Dom-cw-rys" secondAttribute="bottom" id="A2x-hd-Oif"/>
-                            <constraint firstItem="Dom-cw-rys" firstAttribute="leading" secondItem="Ufh-Gj-0yT" secondAttribute="leading" id="gjC-68-IIT"/>
-                            <constraint firstItem="Dom-cw-rys" firstAttribute="top" secondItem="Ufh-Gj-0yT" secondAttribute="top" id="h5p-ht-iGj"/>
+                            <constraint firstItem="Dom-cw-rys" firstAttribute="leading" secondItem="Ufh-Gj-0yT" secondAttribute="leading" id="21w-y6-6Xa"/>
+                            <constraint firstItem="Dom-cw-rys" firstAttribute="bottom" secondItem="Ufh-Gj-0yT" secondAttribute="bottom" id="kvA-he-exq"/>
+                            <constraint firstItem="Dom-cw-rys" firstAttribute="trailing" secondItem="Ufh-Gj-0yT" secondAttribute="trailing" id="q49-eu-nfM"/>
+                            <constraint firstItem="Dom-cw-rys" firstAttribute="top" secondItem="Ufh-Gj-0yT" secondAttribute="top" id="zC0-AJ-VzB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" largeTitleDisplayMode="always" id="Bue-6R-pU5">

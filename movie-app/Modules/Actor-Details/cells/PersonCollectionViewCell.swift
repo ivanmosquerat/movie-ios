@@ -25,7 +25,7 @@ class PersonCollectionViewCell: UICollectionViewCell {
     }
 
     func setupCellWith(personSelected:CastMember){
-        photoImageview.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(personSelected.profilePath!)"))
+        photoImageview.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(personSelected.profilePath ?? "")"))
         nameLabel.text = personSelected.name
         characterLabel.text = personSelected.character
         

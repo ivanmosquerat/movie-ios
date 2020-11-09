@@ -59,11 +59,7 @@ class MovieviewModel: NSObject {
         getPopularMovies()
         getRatedMovies()
         getMoviesUpcoming()
-    }
-    
-    init(movieId:Int) {
-        super.init()
-        getMovieCredits(movieId: movieId)
+       
     }
     
     // MARK: - Public methods
@@ -95,12 +91,4 @@ class MovieviewModel: NSObject {
         }, url: Constants.Server.upcomingMovies)
     }
     
-    func getMovieCredits(movieId:Int){
-        
-        self.apiService.getMovieCredits(completion: {(movieCreditsData) in
-            
-            self.movieCreditsData = movieCreditsData
-            
-        }, url: "\(EndPoints.Movies.movieBase)\(movieId)\(EndPoints.Movies.movieCredits)\(EndPoints.apiKey)")
-    }
 }

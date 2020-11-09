@@ -31,16 +31,18 @@ class MoviesDetailsViewController: UIViewController {
     var movieCredits: MovieCredits =  MovieCredits.default
     var castDataSource : [CastMember] = []
     var crewDataSource : [CrewMember] = []
-    private var cellId = "ActorCollectionViewCell"
-    private var viewModel: MovieviewModel!
+    private var cellId = "PersonCollectionViewCell"
+    private var apiService : ApiService!
     
+    // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
+        apiService = ApiService()
         castCollectionView.delegate = self
         castCollectionView.dataSource = self
         castCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
         setupUi()
-        callViewModelForUpdates(id: movie.id ?? 0)
+        callViewModelForUpdates(movieId: movie.id ?? 0)
     }
     
     // MARK: - Methods
@@ -72,18 +74,18 @@ class MoviesDetailsViewController: UIViewController {
         statusLabel.text = movie.status ?? "Status not avaliable"
     }
     
-    private func callViewModelForUpdates(id:Int){
-        viewModel = MovieviewModel(movieId: id)
+    private func callViewModelForUpdates(movieId:Int){
         
-        viewModel.bindMovieCreditsController = {
-            self.movieCredits = self.viewModel.movieCreditsData
+        apiService.getMovieCredits(completion: {(movieCredits) in
+            self.movieCredits = movieCredits
             self.setupCastCollection(movieCredits: self.movieCredits)
             self.castCollectionView.reloadData()
-        }
+            
+        }, url: "\(EndPoints.Movies.movieBase)\(movieId)\(EndPoints.Movies.movieCredits)\(EndPoints.apiKey)")
     }
     
     private func setupCastCollection(movieCredits:MovieCredits){
-        if let castArray = movieCredits.cast as? [CastMember] {
+        if let castArray = movieCredits.cast {
             for cast in castArray {
                 castDataSource.append(CastMember(id: cast.id, castId: cast.castId, gender: cast.gender, order: cast.order, character: cast.character, creditId: cast.creditId, name: cast.name, profilePath: cast.profilePath))
             }
