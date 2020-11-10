@@ -23,7 +23,8 @@ class MoviesDetailsViewController: UIViewController {
     @IBOutlet weak var horizontalStackView: UIStackView!
     @IBOutlet weak var overviewTextView: UITextView!
     @IBOutlet weak var castCollectionView: UICollectionView!
-   
+    @IBOutlet weak var crewCollectionView: UICollectionView!
+    
     
     // MARK: - Properties
     var movie:MovieData = MovieData.default
@@ -40,7 +41,11 @@ class MoviesDetailsViewController: UIViewController {
         apiService = ApiService()
         castCollectionView.delegate = self
         castCollectionView.dataSource = self
+        crewCollectionView.delegate = self
+        crewCollectionView.dataSource = self
         castCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+        crewCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+        
         setupUi()
         callViewModelForUpdates(movieId: movie.id ?? 0)
     }
@@ -79,7 +84,9 @@ class MoviesDetailsViewController: UIViewController {
         apiService.getMovieCredits(completion: {(movieCredits) in
             self.movieCredits = movieCredits
             self.setupCastCollection(movieCredits: self.movieCredits)
+            self.setupCrewCollection(movieCredits: self.movieCredits)
             self.castCollectionView.reloadData()
+            self.crewCollectionView.reloadData()
             
         }, url: "\(EndPoints.Movies.movieBase)\(movieId)\(EndPoints.Movies.movieCredits)\(EndPoints.apiKey)")
     }
@@ -88,6 +95,14 @@ class MoviesDetailsViewController: UIViewController {
         if let castArray = movieCredits.cast {
             for cast in castArray {
                 castDataSource.append(CastMember(id: cast.id, castId: cast.castId, gender: cast.gender, order: cast.order, character: cast.character, creditId: cast.creditId, name: cast.name, profilePath: cast.profilePath))
+            }
+        }
+    }
+    
+    private func setupCrewCollection(movieCredits:MovieCredits){
+        if let crewArray = movieCredits.crew {
+            for crew in crewArray {
+                crewDataSource.append(CrewMember(id: crew.id, gender: crew.gender, department: crew.department, job: crew.job, creditId: crew.creditId, name: crew.name, profilePath: crew.profilePath))
             }
         }
     }
@@ -102,7 +117,13 @@ extension MoviesDetailsViewController: UICollectionViewDelegate{
 extension MoviesDetailsViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        castDataSource.count
+        
+        if collectionView ==  self.castCollectionView {
+            return castDataSource.count
+        }else{
+            return crewDataSource.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -110,7 +131,11 @@ extension MoviesDetailsViewController: UICollectionViewDataSource{
         let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
         if let cell = cell as? PersonCollectionViewCell{
-            cell.setupCellWith(personSelected: castDataSource[indexPath.row])
+            if collectionView == self.castCollectionView{
+                cell.setupCellWithCastMember(personSelected: castDataSource[indexPath.row])
+            }else{
+                cell.setupCellWithCrewMember(personSelected: crewDataSource[indexPath.row])
+            }
         }
         
         return cell

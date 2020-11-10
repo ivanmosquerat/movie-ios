@@ -17,17 +17,46 @@ class PersonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var characterLabel: UILabel!
     
     // MARK: - Properties
-//    var personSelected:CastMember = CastMember.default
+    var personSelected:CastMember = CastMember.default
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //setupCellWith(personSelected: personSelected)
     }
 
-    func setupCellWith(personSelected:CastMember){
-        photoImageview.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(personSelected.profilePath ?? "")"))
+    func setupCellWithCastMember(personSelected:CastMember){
+        
+        photoImageview.layer.cornerRadius = 5
+        photoImageview.layer.masksToBounds = true
+        
+        if(personSelected.profilePath != nil){
+            photoImageview.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(personSelected.profilePath ?? "")"))
+        }else{
+            photoImageview.image = UIImage(named: "person_default")
+        }
+        
+        
+        
         nameLabel.text = personSelected.name
         characterLabel.text = personSelected.character
+        
+    }
+    
+    func setupCellWithCrewMember(personSelected:CrewMember){
+        
+        photoImageview.layer.cornerRadius = 5
+        photoImageview.layer.masksToBounds = true
+        
+        if (personSelected.profilePath != nil){
+            photoImageview.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(personSelected.profilePath ?? "")"))
+        }else{
+            photoImageview.image = UIImage(named: "person_default")
+        }
+        
+        
+        nameLabel.text = personSelected.name
+        characterLabel.text = personSelected.job
         
     }
 }

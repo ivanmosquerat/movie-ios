@@ -93,7 +93,7 @@ extension MovieSectionTableViewCell:UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
         if let cell = cell as? ItemMovieCollectionViewCell{
-            
+           
             cell.setupCellWith(movie: movies[indexPath.row])
         }
         

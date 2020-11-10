@@ -28,6 +28,7 @@ class ApiService: NSObject {
                     if let data = response.data {
                         let dataFromService = try! JSONDecoder().decode(Movie.self, from: data)
                         completion(dataFromService.results)
+                        debugPrint(dataFromService.results[0])
                     }
                 }else{
                     NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
@@ -54,6 +55,7 @@ class ApiService: NSObject {
                     if let data = response.data{
                         let dataFromService = try! JSONDecoder().decode(MovieCredits.self, from: data)
                         completion(dataFromService)
+                        
                     }
                     
                 }else{
