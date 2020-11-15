@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct Genre:Codable {
+    let id:Int?
+    let name:String?
+    
+    static var `default`:Genre {
+        .init(id: 0, name: "")
+    }
+}

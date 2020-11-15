@@ -38,6 +38,14 @@ class MoviesDetailsViewController: UIViewController {
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTableViews()
+        setupUi()
+        getMovieDetails(movieId: movie.id ?? 0)
+        getMovieCredits(movieId: movie.id ?? 0)
+    }
+    
+    // MARK: - Methods
+    private func setTableViews(){
         apiService = ApiService()
         castCollectionView.delegate = self
         castCollectionView.dataSource = self
@@ -45,12 +53,8 @@ class MoviesDetailsViewController: UIViewController {
         crewCollectionView.dataSource = self
         castCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
         crewCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
-        
-        setupUi()
-        callViewModelForUpdates(movieId: movie.id ?? 0)
     }
     
-    // MARK: - Methods
     private func setupUi(){
         posterImageView.layer.cornerRadius = 5
         posterImageView.layer.masksToBounds = true
@@ -79,8 +83,13 @@ class MoviesDetailsViewController: UIViewController {
         statusLabel.text = movie.status ?? "Status not avaliable"
     }
     
-    private func callViewModelForUpdates(movieId:Int){
-        
+    private func getMovieDetails(movieId:Int){
+        apiService.getMovieDetails(completion: {(movieData) in
+            self.movie = movieData
+        }, url: "\(EndPoints.Movies.movieBase)\(movieId)\(EndPoints.apiKey)")
+    }
+    
+    private func getMovieCredits(movieId:Int){
         apiService.getMovieCredits(completion: {(movieCredits) in
             self.movieCredits = movieCredits
             self.setupCastCollection(movieCredits: self.movieCredits)

@@ -38,14 +38,14 @@ struct MovieData: Codable {
     let adult,
         video:Bool?
     let genreIds:[Int]?
-    let genres:[Int]?
-    let belongsToCollection:String?
-    let productionCompanies:[Int]?
+    let genres:[Genre]?
+    let belongsToCollection:[String]?
+    let productionCompanies:[ProductionCompany]?
     let productionCountries:[Int]?
     let spokenLanguages:[Int]?
     
     static var `default`:MovieData{
-        .init(id: 0, budget: 0, revenue: 0, runtime: 0, title: "", originalTitle: "", overview: "", posterPath: "", backdropPath: "", originalLanguage: "", mediaType: "", releaseDate: "", homepage: "", imdbId: "", status: "", tagline: "", voteAverage: 0.0, voteCount: 0.0, popularity: 0.0, adult: true, video: false, genreIds: [0], genres: [0], belongsToCollection: "", productionCompanies: [0], productionCountries: [0], spokenLanguages: [0])
+        .init(id: 0, budget: 0, revenue: 0, runtime: 0, title: "", originalTitle: "", overview: "", posterPath: "", backdropPath: "", originalLanguage: "", mediaType: "", releaseDate: "", homepage: "", imdbId: "", status: "", tagline: "", voteAverage: 0.0, voteCount: 0.0, popularity: 0.0, adult: true, video: false, genreIds: [], genres: [], belongsToCollection: [], productionCompanies: [], productionCountries: [], spokenLanguages: [])
     }
     
     enum CodingKeys: String, CodingKey{
@@ -67,7 +67,7 @@ struct MovieData: Codable {
         case genreIds = "genre_ids"
         case budget = "budget"
         case revenue = "revenue"
-        case runtime = "runtime"
+        case runtime
         case homepage = "homepage"
         case imdbId = "imdb_id"
         case status = "status"
