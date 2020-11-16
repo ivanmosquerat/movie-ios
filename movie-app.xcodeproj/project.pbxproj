@@ -15,6 +15,7 @@
 		24348BA8250A50C70055F93B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24348BA7250A50C70055F93B /* Constants.swift */; };
 		2468EBE1251779C5004B83FC /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2468EBE0251779C5004B83FC /* MovieViewModel.swift */; };
 		2468EBE925177A45004B83FC /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2468EBE825177A45004B83FC /* ApiConfiguration.swift */; };
+		247C009825623BFE00C4BF5A /* LanguagesFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C009725623BFE00C4BF5A /* LanguagesFlags.swift */; };
 		24981F8A254847640079541D /* PersonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24981F88254847630079541D /* PersonCollectionViewCell.swift */; };
 		24981F8B254847640079541D /* PersonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24981F89254847640079541D /* PersonCollectionViewCell.xib */; };
 		24981F93254853DE0079541D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24981F92254853DE0079541D /* Person.swift */; };
@@ -88,6 +89,7 @@
 		24348BA7250A50C70055F93B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2468EBE0251779C5004B83FC /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		2468EBE825177A45004B83FC /* ApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfiguration.swift; sourceTree = "<group>"; };
+		247C009725623BFE00C4BF5A /* LanguagesFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesFlags.swift; sourceTree = "<group>"; };
 		24981F88254847630079541D /* PersonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewCell.swift; sourceTree = "<group>"; };
 		24981F89254847640079541D /* PersonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonCollectionViewCell.xib; sourceTree = "<group>"; };
 		24981F92254853DE0079541D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 		24BADD9C24FE78F100635CDA /* Supporting-Files */ = {
 			isa = PBXGroup;
 			children = (
+				247C009725623BFE00C4BF5A /* LanguagesFlags.swift */,
 				24348BA7250A50C70055F93B /* Constants.swift */,
 				24BADD6B24FE5F5100635CDA /* AppDelegate.swift */,
 				24BADD6D24FE5F5100635CDA /* SceneDelegate.swift */,
@@ -712,6 +715,7 @@
 				24DADF2B25581C3800D6ACB7 /* MovieCredits.swift in Sources */,
 				2468EBE925177A45004B83FC /* ApiConfiguration.swift in Sources */,
 				242AA58725615E2D00E77BE0 /* Collection.swift in Sources */,
+				247C009825623BFE00C4BF5A /* LanguagesFlags.swift in Sources */,
 				24981F98254853FD0079541D /* PersonViewModel.swift in Sources */,
 				24348BA8250A50C70055F93B /* Constants.swift in Sources */,
 				24EC79832534745200D144D6 /* SectionSerieTableViewCell.swift in Sources */,

@@ -26,6 +26,7 @@ struct Constants {
     }
 }
 
+
 enum HttpReaderField: String {
         case authentication = "Authorization"
         case contentType = "Content-Type"

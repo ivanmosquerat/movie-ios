@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+struct Language:Codable {
+    let iso,
+        englishName,
+        name:String?
+    
+    static var `default`:Language{
+        .init(iso: "", englishName: "", name: "")
+    }
+    
+    enum CodingKeys: String, CodingKey{
+        case name
+        case englishName = "english_name"
+        case iso = "iso_639_11"
+    }
+}

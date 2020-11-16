@@ -39,13 +39,13 @@ struct MovieData: Codable {
         video:Bool?
     let genreIds:[Int]?
     let genres:[Genre]?
-    let belongsToCollection:[String]?
+    let belongsToCollection:[String]? = nil
     let productionCompanies:[ProductionCompany]?
-    let productionCountries:[Int]?
-    let spokenLanguages:[Int]?
+    let productionCountries:[ProductionCountry]?
+    let spokenLanguages:[Language]?
     
     static var `default`:MovieData{
-        .init(id: 0, budget: 0, revenue: 0, runtime: 0, title: "", originalTitle: "", overview: "", posterPath: "", backdropPath: "", originalLanguage: "", mediaType: "", releaseDate: "", homepage: "", imdbId: "", status: "", tagline: "", voteAverage: 0.0, voteCount: 0.0, popularity: 0.0, adult: true, video: false, genreIds: [], genres: [], belongsToCollection: [], productionCompanies: [], productionCountries: [], spokenLanguages: [])
+        .init(id: 0, budget: 0, revenue: 0, runtime: 0, title: "", originalTitle: "", overview: "", posterPath: "", backdropPath: "", originalLanguage: "", mediaType: "", releaseDate: "", homepage: "", imdbId: "", status: "", tagline: "", voteAverage: 0.0, voteCount: 0.0, popularity: 0.0, adult: true, video: false, genreIds: [], genres: [], productionCompanies: [], productionCountries: [], spokenLanguages: [])
     }
     
     enum CodingKeys: String, CodingKey{

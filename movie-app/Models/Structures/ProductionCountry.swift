@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+struct ProductionCountry:Codable{
+    let iso,
+        name:String?
+    
+    static var `default`:ProductionCountry{
+        .init(iso: "", name: "")
+    }
+    
+    enum CodingKeys: String, CodingKey{
+        case name
+        case iso = "iso_3166_1"
+    }
+}

@@ -24,6 +24,7 @@ class MoviesDetailsViewController: UIViewController {
     @IBOutlet weak var overviewTextView: UITextView!
     @IBOutlet weak var castCollectionView: UICollectionView!
     @IBOutlet weak var crewCollectionView: UICollectionView!
+    @IBOutlet weak var voteView: UIView!
     
     
     // MARK: - Properties
@@ -39,9 +40,9 @@ class MoviesDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableViews()
-        setupUi()
         getMovieDetails(movieId: movie.id ?? 0)
         getMovieCredits(movieId: movie.id ?? 0)
+        //setupUi()
     }
     
     // MARK: - Methods
@@ -72,6 +73,7 @@ class MoviesDetailsViewController: UIViewController {
         minutes
         """
         voteLabel.text = "\(movie.voteAverage ?? 0.0)"
+        setupViewVote(vote: movie.voteAverage ?? 0.0)
         
         horizontalStackView.layer.cornerRadius = 8
         horizontalStackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -79,25 +81,60 @@ class MoviesDetailsViewController: UIViewController {
         horizontalStackView.layer.masksToBounds = true
         
         overviewTextView.text = movie.overview ?? "Overview not avaliable"
-        languageLabel.text = "Original language: \(movie.originalLanguage ?? "N/A")"
+        
+        languageLabel.text = "Language: \(setupLanguage(movie: movie))"
+        
         statusLabel.text = movie.status ?? "Status not avaliable"
+        
+        
+        setupGenreChips(movie: movie)
     }
     
     private func getMovieDetails(movieId:Int){
         apiService.getMovieDetails(completion: {(movieData) in
             self.movie = movieData
+            
+            DispatchQueue.main.async {
+                self.setupUi()
+            }
         }, url: "\(EndPoints.Movies.movieBase)\(movieId)\(EndPoints.apiKey)")
     }
     
     private func getMovieCredits(movieId:Int){
         apiService.getMovieCredits(completion: {(movieCredits) in
             self.movieCredits = movieCredits
-            self.setupCastCollection(movieCredits: self.movieCredits)
-            self.setupCrewCollection(movieCredits: self.movieCredits)
-            self.castCollectionView.reloadData()
-            self.crewCollectionView.reloadData()
+            
+            DispatchQueue.main.async {
+                self.setupCastCollection(movieCredits: self.movieCredits)
+                self.setupCrewCollection(movieCredits: self.movieCredits)
+                self.castCollectionView.reloadData()
+                self.crewCollectionView.reloadData()
+            }
             
         }, url: "\(EndPoints.Movies.movieBase)\(movieId)\(EndPoints.Movies.movieCredits)\(EndPoints.apiKey)")
+    }
+    
+    private func setupViewVote(vote:Double){
+        voteView.layer.cornerRadius = voteView.frame.height / 2
+        voteView.layer.borderWidth = 4
+        voteView.layer.borderColor = UIColor(named: "secondary")?.cgColor
+        voteView.layer.masksToBounds = true
+    }
+    
+    private func setupGenreChips(movie:MovieData){
+        genreLabel.text = movie.genres?.first?.name ?? "N/A"
+    }
+    
+    private func setupLanguage(movie:MovieData) -> String {
+        
+        var languageText = "N/A"
+        for language in LanguagesFlags{
+            if (language.key == movie.originalLanguage){
+                languageText = language.value
+            }
+        }
+        
+        return languageText
     }
     
     private func setupCastCollection(movieCredits:MovieCredits){
