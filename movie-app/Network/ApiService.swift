@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-import SVProgressHUD
+
 import NotificationBannerSwift
 
 class ApiService: NSObject {

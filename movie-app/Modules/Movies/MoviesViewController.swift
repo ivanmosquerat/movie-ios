@@ -26,6 +26,7 @@ class MoviesViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //MARK: - Actions
     
@@ -48,6 +49,7 @@ class MoviesViewController: UIViewController {
     }
     
     private func callToViewModelForUpdate(){
+        activityIndicator.startAnimating()
         viewModel = MovieviewModel()
         
         viewModel.bindTrendingMovieToController = {
@@ -57,6 +59,7 @@ class MoviesViewController: UIViewController {
         
         viewModel.bindPopularMovieController = {
             self.moviesBySection["Popular"]?.append(contentsOf: self.viewModel.popularMovieData)
+            
             self.tableview.reloadData()
         }
         
@@ -67,12 +70,10 @@ class MoviesViewController: UIViewController {
         
         viewModel.bindUpcomingMovieController = {
             self.moviesBySection["Upcoming"]?.append(contentsOf: self.viewModel.upcomingMovieData)
+            self.activityIndicator.stopAnimating()
             self.tableview.reloadData()
         }
     }
-    
-    
-    
     
 }
 

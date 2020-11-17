@@ -9,10 +9,11 @@
 import Foundation
 
 var LanguagesFlags: [String:String] = [
-    "en" : "English 🇬🇧",
+    "en" : "English 🇺🇸",
     "es" : "Spanish 🇪🇸",
     "ja" : "Japanese 🇯🇵",
     "de" : "German 🇩🇪",
+    "fr" : "French 🇫🇷"
 ]
 
 

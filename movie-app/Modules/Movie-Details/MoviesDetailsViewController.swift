@@ -82,7 +82,7 @@ class MoviesDetailsViewController: UIViewController {
         
         overviewTextView.text = movie.overview ?? "Overview not avaliable"
         
-        languageLabel.text = "Language: \(setupLanguage(movie: movie))"
+        languageLabel.text = "\(setupLanguage(movie: movie))"
         
         statusLabel.text = movie.status ?? "Status not avaliable"
         
