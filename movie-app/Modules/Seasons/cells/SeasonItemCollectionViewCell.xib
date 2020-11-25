@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SeasonItemCollectionViewCell" customModule="Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="128" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="128" height="220"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doc.richtext" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8rb-SU-d6o">
+                        <rect key="frame" x="0.0" y="0.0" width="128" height="160"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="160" id="6fj-ul-LNH"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season #" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfP-ln-1Wc">
+                        <rect key="frame" x="0.0" y="163" width="62.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mq-MT-Vri">
+                        <rect key="frame" x="0.0" y="180" width="38" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Episodes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FU-gW-hll">
+                        <rect key="frame" x="0.0" y="197" width="71.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="0FU-gW-hll" firstAttribute="top" secondItem="6Mq-MT-Vri" secondAttribute="bottom" id="5GZ-sA-bzg"/>
+                <constraint firstItem="6Mq-MT-Vri" firstAttribute="top" secondItem="rfP-ln-1Wc" secondAttribute="bottom" id="6RI-wR-YJf"/>
+                <constraint firstAttribute="trailing" secondItem="8rb-SU-d6o" secondAttribute="trailing" id="7HT-Eb-ezn"/>
+                <constraint firstItem="8rb-SU-d6o" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CLR-x0-wuN"/>
+                <constraint firstItem="6Mq-MT-Vri" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="FYc-HZ-aur"/>
+                <constraint firstItem="8rb-SU-d6o" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XKj-xL-rxd"/>
+                <constraint firstItem="rfP-ln-1Wc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="boG-lb-OFU"/>
+                <constraint firstItem="rfP-ln-1Wc" firstAttribute="top" secondItem="8rb-SU-d6o" secondAttribute="bottom" constant="3" id="n4y-Li-NDB"/>
+                <constraint firstItem="0FU-gW-hll" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oks-sV-Ul9"/>
+            </constraints>
+            <connections>
+                <outlet property="episodesNumberLabel" destination="0FU-gW-hll" id="dGh-La-VT0"/>
+                <outlet property="posterImageView" destination="8rb-SU-d6o" id="P8g-8N-Ltg"/>
+                <outlet property="seasonNameLabel" destination="6Mq-MT-Vri" id="Oce-vq-gxG"/>
+                <outlet property="seasonNumberLabel" destination="rfP-ln-1Wc" id="U9b-gj-NAE"/>
+            </connections>
+            <point key="canvasLocation" x="64" y="80"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="doc.richtext" catalog="system" width="115" height="128"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

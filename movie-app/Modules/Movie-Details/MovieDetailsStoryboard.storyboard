@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2B-jH-f4z">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1145"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1227"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gcm-ZW-TnQ">
                                                 <rect key="frame" x="20" y="0.0" width="150" height="250"/>
@@ -192,7 +192,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="S2B-jH-f4z" firstAttribute="height" secondItem="Dom-cw-rys" secondAttribute="height" multiplier="1.4" priority="250" id="Jit-5u-TPV"/>
+                                    <constraint firstItem="S2B-jH-f4z" firstAttribute="height" secondItem="Dom-cw-rys" secondAttribute="height" multiplier="1.5" priority="250" id="Jit-5u-TPV"/>
                                     <constraint firstAttribute="height" constant="818" id="Vbs-H4-I66"/>
                                     <constraint firstItem="S2B-jH-f4z" firstAttribute="leading" secondItem="Dom-cw-rys" secondAttribute="leading" id="bQ8-U8-YrZ"/>
                                     <constraint firstItem="S2B-jH-f4z" firstAttribute="top" secondItem="Dom-cw-rys" secondAttribute="top" id="uVa-CB-chb"/>
