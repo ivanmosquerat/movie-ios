@@ -19,8 +19,8 @@ struct Episode:Codable {
         seasonNumber,
         voteCount: Int?
     let voteAverage: Double?
-    let crew:[CrewMember]
-    let guestStars:[CastMember]
+    let crew:[CrewMember]?
+    let guestStars:[CastMember]?
     
     static var `default`:Episode{
         .init(airDate: "", name: "", overview: "", stillPath: "", productionCode: "", id: 0, episodeNumber: 0, seasonNumber: 0, voteCount: 0, voteAverage: 0.0, crew: [], guestStars: [])

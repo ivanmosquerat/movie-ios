@@ -12,6 +12,7 @@ import UIKit
 class SeriesViewController: UIViewController {
     
     //MARK: - Properties
+    private let segueIndetifierToSerieDetail = "showSerieDetail"
     private let cellId = "SectionSerieTableViewCell"
     private let sectionsTitles = ["Trending","Popular","Rated"]
     private var seriesBySection:[String:[SerieData]] = [
@@ -20,6 +21,7 @@ class SeriesViewController: UIViewController {
         "Rated":[SerieData](),
     ]
     private var viewModel: SerieViewModel!
+    private var serieSelectedOnCollection:SerieData = SerieData.default
     
     // MARK: - Outlets
     @IBOutlet weak var tableViewSeries: UITableView!
@@ -61,9 +63,23 @@ class SeriesViewController: UIViewController {
 
 }
 
-// MARK: UITableViewDelegate
+// MARK: - Navigation
+extension SeriesViewController{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueIndetifierToSerieDetail, let serieDetailViewController = segue.destination as? SerieDetailViewController{
+            
+            serieDetailViewController.serie = serieSelectedOnCollection
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate
 extension SeriesViewController: UITableViewDelegate{
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        return true
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -79,6 +95,11 @@ extension SeriesViewController: UITableViewDataSource{
         let cell =  tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         if let cell = cell as? SectionSerieTableViewCell{
+            
+            cell.closureSerieSelected = { serie in
+                self.serieSelectedOnCollection = serie
+            }
+            
             cell.setupCellWith(title: sectionsTitles[indexPath.row], series: seriesBySection)
         }
         

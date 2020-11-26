@@ -28,6 +28,9 @@ struct EndPoints {
         static let trendingSeries = "trending/tv/week"
         static let popularSeries = "tv/popular"
         static let ratedSeries = "tv/top_rated"
+        static let serieBase = "https://api.themoviedb.org/3/tv/"
+        static let serieCredits = "/credits"
+        static let serieSeasonDetails = "/season/"
     }
     
 }

@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct Season{
+struct Season:Codable{
     let id,
         seasonNumber:Int?
     let _id,
         airDate,
         name,
         overview,
-        posterPath: String
-    let episodes:[Episode]
+        posterPath: String?
+    let episodes:[Episode]?
     
     static var `default`:Season{
         .init(id: 0, seasonNumber: 0, _id: "", airDate: "", name: "", overview: "", posterPath: "", episodes: [])

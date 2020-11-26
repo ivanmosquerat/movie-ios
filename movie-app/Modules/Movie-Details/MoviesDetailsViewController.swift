@@ -39,14 +39,14 @@ class MoviesDetailsViewController: UIViewController {
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTableViews()
+        setCollectionsView()
         getMovieDetails(movieId: movie.id ?? 0)
         getMovieCredits(movieId: movie.id ?? 0)
         //setupUi()
     }
     
     // MARK: - Methods
-    private func setTableViews(){
+    private func setCollectionsView(){
         apiService = ApiService()
         castCollectionView.delegate = self
         castCollectionView.dataSource = self

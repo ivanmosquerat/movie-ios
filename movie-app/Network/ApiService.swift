@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-
 import NotificationBannerSwift
 
 class ApiService: NSObject {
@@ -55,8 +54,9 @@ class ApiService: NSObject {
                         NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
                     }
                 }
-            case .failure(let error):
-                debugPrint(error)
+            case .failure(_):
+                
+                NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
             }
         }
     }
@@ -117,4 +117,36 @@ class ApiService: NSObject {
         }
         
     }
+    
+    func getSerieDetails(completion: @escaping (SerieData) -> (), url:String){
+        
+        guard let url = URL(string: url) else { return }
+        
+        AF.request(url, method: .get, parameters: nil).response{(response: AFDataResponse<Data?>) in
+            
+            switch response.result{
+            
+            case .success(_):
+                if response.response?.statusCode == 200 {
+                    if let data = response.data{
+                        let dataFaromService = try! JSONDecoder().decode(SerieData.self, from: data)
+                        completion(dataFaromService)
+                        
+                    }else{
+                        NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
+                    }
+                }
+                
+            case .failure(_):
+                
+                NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
+            }
+        }
+    }
+    
+    func getSerieCredits(){}
+    
+    func getSerieSeasons(){}
+    
+    func getSeasonsDetails(){}
 }

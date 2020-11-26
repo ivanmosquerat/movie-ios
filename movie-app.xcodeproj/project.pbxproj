@@ -49,6 +49,7 @@
 		24DADF2125580D7300D6ACB7 /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DADF2025580D7300D6ACB7 /* CrewMember.swift */; };
 		24DADF2625580DE200D6ACB7 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DADF2525580DE200D6ACB7 /* Genre.swift */; };
 		24DADF2B25581C3800D6ACB7 /* MovieCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DADF2A25581C3800D6ACB7 /* MovieCredits.swift */; };
+		24E05187256FD546003B1BD9 /* Networks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E05186256FD546003B1BD9 /* Networks.swift */; };
 		24EA709D252A067800FAA8D7 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EA709C252A067700FAA8D7 /* ApiService.swift */; };
 		24EAA0892506634E00B756C7 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAA0882506634E00B756C7 /* EndPoints.swift */; };
 		24EAA08B2506653500B756C7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAA08A2506653500B756C7 /* Movie.swift */; };
@@ -135,6 +136,7 @@
 		24DADF2025580D7300D6ACB7 /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
 		24DADF2525580DE200D6ACB7 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		24DADF2A25581C3800D6ACB7 /* MovieCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCredits.swift; sourceTree = "<group>"; };
+		24E05186256FD546003B1BD9 /* Networks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networks.swift; sourceTree = "<group>"; };
 		24EA709C252A067700FAA8D7 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		24EAA0882506634E00B756C7 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		24EAA08A2506653500B756C7 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				242AA58625615E2D00E77BE0 /* Collection.swift */,
 				246A057F256A71280024562E /* Episode.swift */,
 				246A0584256A715D0024562E /* Season.swift */,
+				24E05186256FD546003B1BD9 /* Networks.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				2468EBE1251779C5004B83FC /* MovieViewModel.swift in Sources */,
 				24EA709D252A067800FAA8D7 /* ApiService.swift in Sources */,
 				242AA57425615D9800E77BE0 /* ProductionCompany.swift in Sources */,
+				24E05187256FD546003B1BD9 /* Networks.swift in Sources */,
 				24DADF1C25580D6300D6ACB7 /* CastMember.swift in Sources */,
 				24981F9D2548542E0079541D /* PersonDetailsViewController.swift in Sources */,
 				24BADD6C24FE5F5100635CDA /* AppDelegate.swift in Sources */,

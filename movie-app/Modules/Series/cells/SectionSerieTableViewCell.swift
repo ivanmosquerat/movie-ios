@@ -15,6 +15,7 @@ class SectionSerieTableViewCell: UITableViewCell {
     //MARK: - Properties
     private var series:[SerieData] = []
     private var cellId = "ItemSerieCollectionViewCell"
+    var closureSerieSelected:((_ serie:SerieData) -> Void)?
     
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -48,9 +49,37 @@ class SectionSerieTableViewCell: UITableViewCell {
     
 }
 
+// MARK: - Navigation
+extension SectionSerieTableViewCell{
+    
+    var referenceSeriesTableViewController: SeriesViewController? {
+        var parentResponder: UIResponder = self
+        
+        while parentResponder != nil{
+            parentResponder = parentResponder.next!
+            if let viewController = parentResponder as? SeriesViewController{
+                
+                return viewController
+            }
+        }
+        return nil
+    }
+}
+
 // MARK: - UICollectionViewDelegate
 extension SectionSerieTableViewCell:UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let tableController = referenceSeriesTableViewController{
+            if closureSerieSelected != nil{
+                closureSerieSelected!(self.series[indexPath.row])
+            }
+            tableController.performSegue(withIdentifier: "showSerieDetail", sender: nil)
+        }
+        
+        
+        
+    }
 }
 
 // MARK: - UICollectionViewDataSource
