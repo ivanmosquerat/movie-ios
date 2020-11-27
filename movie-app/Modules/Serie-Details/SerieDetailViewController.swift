@@ -31,8 +31,9 @@ class SerieDetailViewController: UIViewController {
     // MARK: - Properties
     private var serieYearRelease:String = ""
     private let cellSeasonID = "SeasonItemCollectionViewCell"
+    private var cellPersonId = "PersonCollectionViewCell"
     var serie:SerieData = SerieData.default
-    //private var serieCredits:SerieCredits = SerieCredits.default
+    private var serieCredits:MovieCredits = MovieCredits.default
     private var seasonsDatasource:[Season] = []
     private var castDataSource:[CastMember] = []
     private var crewDataSource:[CrewMember] = []
@@ -42,6 +43,7 @@ class SerieDetailViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionsView()
         getSerieDetails(serieId: serie.id ?? 0)
+        getSerieCredits(serieId: serie.id ?? 0)
     }
     
     private func setupUi(){
@@ -80,6 +82,17 @@ class SerieDetailViewController: UIViewController {
     
     private func setupCollectionsView(){
         apiService = ApiService()
+        seasonsCollectionView.delegate = self
+        seasonsCollectionView.dataSource = self
+        seasonsCollectionView.register(UINib(nibName: cellSeasonID, bundle: nil), forCellWithReuseIdentifier: cellSeasonID)
+        
+        castCollectionView.delegate = self
+        castCollectionView.dataSource = self
+        castCollectionView.register(UINib(nibName: cellPersonId, bundle: nil), forCellWithReuseIdentifier: cellPersonId)
+        
+        crewCollectionView.delegate = self
+        crewCollectionView.dataSource = self
+        crewCollectionView.register(UINib(nibName: cellPersonId, bundle: nil), forCellWithReuseIdentifier: cellPersonId)
     }
     
     private func getSerieDetails(serieId: Int){
@@ -88,16 +101,46 @@ class SerieDetailViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self.setupUi()
+                self.seasonsDatasource = self.serie.seasons ?? []
+                self.seasonsCollectionView.reloadData()
             }
         }, url: "\(EndPoints.Series.serieBase)\(serieId)\(EndPoints.apiKey)")
     }
     
-    private func getSeasonList(){}
+    private func getSerieCredits(serieId:Int){
+        apiService.getMovieCredits(completion: {(serieCredits) in
+            self.serieCredits = serieCredits
+            
+            DispatchQueue.main.async {
+                self.setupCastCollectionView(serieCredits: self.serieCredits)
+                self.setupCrewCollectionView(serieCredits: self.serieCredits)
+                self.castCollectionView.reloadData()
+                self.crewCollectionView.reloadData()
+            }
+        }, url: "\(EndPoints.Series.serieBase)\(serieId)\(EndPoints.Series.serieCredits)\(EndPoints.apiKey)")
+    }
     
-    private func getSeasonDetail(id:Int){}
+    private func setupCastCollectionView(serieCredits:MovieCredits){
+        if let castArray = serieCredits.cast{
+            for cast in castArray{
+                castDataSource.append(CastMember(id: cast.id, castId: cast.castId, gender: cast.gender, order: cast.order, character: cast.character, creditId: cast.creditId, name: cast.name, profilePath: cast.profilePath))
+            }
+        }
+        
+        
+    }
+    
+    private func setupCrewCollectionView(serieCredits:MovieCredits){
+        if let crewArray = serieCredits.crew{
+            for crew in crewArray{
+                crewDataSource.append(CrewMember(id: crew.id, gender: crew.gender, department: crew.department, job: crew.job, creditId: crew.creditId, name: crew.name, profilePath: crew.profilePath))
+            }
+        }
+        
+        
+    }
     
     private func setupLanguage(serie:SerieData) -> String {
-        
         var languageText = "N/A"
         for language in LanguagesFlags{
             if (language.key == serie.originalLanguage){
@@ -118,6 +161,53 @@ class SerieDetailViewController: UIViewController {
 }
 
 // MARK: - CollectionViewDelegate
+extension SerieDetailViewController:UICollectionViewDelegate{
+    
+}
 
 // MARK: - CollectionViewDataSource
-
+extension SerieDetailViewController:UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if collectionView == self.seasonsCollectionView{
+            return seasonsDatasource.count
+            
+        }else if collectionView == self.castCollectionView{
+            return castDataSource.count
+            
+        }else{
+            return crewDataSource.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == self.seasonsCollectionView{
+            
+            let cell = seasonsCollectionView.dequeueReusableCell(withReuseIdentifier: cellSeasonID, for: indexPath)
+            
+            if let cell = cell as? SeasonItemCollectionViewCell{
+                
+                cell.setupCellWith(season: seasonsDatasource[indexPath.row])
+            }
+            
+            return cell
+            
+        }else{
+            
+            let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: cellPersonId, for: indexPath)
+            
+            if let cell = cell as? PersonCollectionViewCell{
+                
+                if collectionView == self.castCollectionView{
+                    cell.setupCellWithCastMember(personSelected: castDataSource[indexPath.row])
+                }else{
+                    cell.setupCellWithCrewMember(personSelected: crewDataSource[indexPath.row])
+                }
+            }
+            
+            return cell
+        }
+    }
+}

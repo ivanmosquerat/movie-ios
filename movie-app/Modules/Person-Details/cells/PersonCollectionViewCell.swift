@@ -22,7 +22,6 @@ class PersonCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        //setupCellWith(personSelected: personSelected)
     }
 
     func setupCellWithCastMember(personSelected:CastMember){
@@ -35,8 +34,6 @@ class PersonCollectionViewCell: UICollectionViewCell {
         }else{
             photoImageview.image = UIImage(named: "person_default")
         }
-        
-        
         
         nameLabel.text = personSelected.name
         characterLabel.text = personSelected.character

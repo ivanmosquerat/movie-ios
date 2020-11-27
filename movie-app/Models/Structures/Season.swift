@@ -16,10 +16,11 @@ struct Season:Codable{
         name,
         overview,
         posterPath: String?
+    let episodeCount:Int?
     let episodes:[Episode]?
     
     static var `default`:Season{
-        .init(id: 0, seasonNumber: 0, _id: "", airDate: "", name: "", overview: "", posterPath: "", episodes: [])
+        .init(id: 0, seasonNumber: 0, _id: "", airDate: "", name: "", overview: "", posterPath: "", episodeCount: 0, episodes: [])
     }
     
     enum CodingKeys: String, CodingKey{
@@ -31,6 +32,7 @@ struct Season:Codable{
         case overview
         case posterPath = "poster_path"
         case episodes
+        case episodeCount = "episode_count"
     }
         
 }

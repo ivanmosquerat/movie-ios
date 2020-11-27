@@ -7,20 +7,33 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SeasonItemCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Outlets
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var seasonNumberLabel: UILabel!
-    @IBOutlet weak var seasonNameLabel: UILabel!
     @IBOutlet weak var episodesNumberLabel: UILabel!
     
+    // MARK: - Properties
+   
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    func setupCellWith(season:Season){}
+    func setupCellWith(season:Season){
+        posterImageView.layer.cornerRadius = 5
+        posterImageView.layer.masksToBounds = true
+        
+        if(season.posterPath != nil){
+            posterImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(season.posterPath ?? "")"))
+        }else{
+            posterImageView.image = UIImage(named: "season_default")
+        }
+        seasonNumberLabel.text = "Season \(season.seasonNumber ?? 1)"
+        episodesNumberLabel.text = "\(season.episodeCount ?? 0) Episodes"
+    }
 }
