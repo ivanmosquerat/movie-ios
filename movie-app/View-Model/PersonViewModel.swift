@@ -8,4 +8,4 @@
 
 import Foundation
 
-// TODO: Terminar este view model.
+

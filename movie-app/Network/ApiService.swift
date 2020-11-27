@@ -144,9 +144,33 @@ class ApiService: NSObject {
         }
     }
     
-    func getSerieCredits(){}
-    
-    func getSerieSeasons(){}
-    
+    // MARK: - Seasons methods
     func getSeasonsDetails(){}
+    
+    // MARK: - Person methods
+    func getPersonDetails(completion: @escaping (Person) -> (), url:String){
+        
+        guard let url = URL(string: url) else { return }
+        
+        AF.request(url, method: .get, parameters: nil).response{(response: AFDataResponse<Data?>) in
+            
+            switch response.result{
+            
+            case .success(_):
+                if response.response?.statusCode == 200{
+                    if let data = response.data{
+                        let dataFromService = try! JSONDecoder().decode(Person.self, from: data)
+                        completion(dataFromService)
+                        
+                    }else{
+                        NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
+                    }
+                }
+                
+            case .failure(_):
+                NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
+            }
+        }
+        
+    }
 }

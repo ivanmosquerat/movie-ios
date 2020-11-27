@@ -33,6 +33,7 @@ class MoviesDetailsViewController: UIViewController {
     var movieCredits: MovieCredits =  MovieCredits.default
     var castDataSource : [CastMember] = []
     var crewDataSource : [CrewMember] = []
+    var personSelectedId:Int?
     private var cellId = "PersonCollectionViewCell"
     private var apiService : ApiService!
     
@@ -154,9 +155,25 @@ class MoviesDetailsViewController: UIViewController {
     }
 }
 
+// MARK: - Navigation
+extension MoviesDetailsViewController{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showPersonDetail", let personDetailViewController = segue.destination as? PersonDetailsViewController{
+            
+            personDetailViewController.personeSelectedId = personSelectedId ?? 0
+        }
+    }
+}
+
 // MARK: - UICollectionView delegate
 extension MoviesDetailsViewController: UICollectionViewDelegate{
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        personSelectedId = indexPath[indexPath.row]
+        performSegue(withIdentifier: "showPersonDetail", sender: nil)
+    }
 }
 
 // MARK: - UICollectionView datasource
