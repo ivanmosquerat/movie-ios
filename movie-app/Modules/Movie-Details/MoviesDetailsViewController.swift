@@ -33,13 +33,18 @@ class MoviesDetailsViewController: UIViewController {
     var movieCredits: MovieCredits =  MovieCredits.default
     var castDataSource : [CastMember] = []
     var crewDataSource : [CrewMember] = []
-    var personSelectedId:Int?
+    var personSelectedId:Int = 2227
+    var personDetailViewController:PersonDetailsViewController!
     private var cellId = "PersonCollectionViewCell"
     private var apiService : ApiService!
+    private let segueIdentifierToPerosnDetail = "showPersonDetail"
+    var closure:((_ id:Int) -> Void )?
     
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
+        personDetailViewController = PersonDetailsViewController()
+
         setCollectionsView()
         getMovieDetails(movieId: movie.id ?? 0)
         getMovieCredits(movieId: movie.id ?? 0)
@@ -153,15 +158,18 @@ class MoviesDetailsViewController: UIViewController {
             }
         }
     }
+    
+
 }
 
 // MARK: - Navigation
 extension MoviesDetailsViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "showPersonDetail", let personDetailViewController = segue.destination as? PersonDetailsViewController{
+        if segue.identifier == segueIdentifierToPerosnDetail, let personDetailViewController = segue.destination as? PersonDetailsViewController{
+
+            personDetailViewController.personSelectedId = 2227
             
-            personDetailViewController.personeSelectedId = personSelectedId ?? 0
         }
     }
 }
@@ -169,10 +177,24 @@ extension MoviesDetailsViewController{
 // MARK: - UICollectionView delegate
 extension MoviesDetailsViewController: UICollectionViewDelegate{
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        personSelectedId = indexPath[indexPath.row]
-        performSegue(withIdentifier: "showPersonDetail", sender: nil)
+        if collectionView == self.castCollectionView{
+            self.personSelectedId = castDataSource[indexPath.row].id ?? 0
+        }else{
+            self.personSelectedId = crewDataSource[indexPath.row].id ?? 0
+        }
+        
+        personDetailViewController.personSelectedId = personSelectedId
+        
+        if closure != nil{
+            closure!(personSelectedId)
+        }
+        
+       
+        //performSegue(withIdentifier: "showPersonDetail", sender: nil)
+        
     }
 }
 

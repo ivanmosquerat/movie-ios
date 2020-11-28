@@ -33,4 +33,8 @@ struct EndPoints {
         static let serieSeasonDetails = "/season/"
     }
     
+    struct Person{
+        static let personBase = "https://api.themoviedb.org/3/person/"
+    }
+    
 }

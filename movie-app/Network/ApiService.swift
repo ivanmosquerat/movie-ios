@@ -150,6 +150,7 @@ class ApiService: NSObject {
     // MARK: - Person methods
     func getPersonDetails(completion: @escaping (Person) -> (), url:String){
         
+        debugPrint(url)
         guard let url = URL(string: url) else { return }
         
         AF.request(url, method: .get, parameters: nil).response{(response: AFDataResponse<Data?>) in

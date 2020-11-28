@@ -1,28 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tne-Bh-8nc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJc-Nl-ATe">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Search-->
         <scene sceneID="hG1-HW-GGj">
             <objects>
                 <viewController id="tne-Bh-8nc" customClass="SearchViewController" customModule="Movies" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dp5-4j-qep">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Rpp-cf-sWV">
+                                <rect key="frame" x="0.0" y="140" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search" textContentType="name"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tg7-El-yOp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Rpp-cf-sWV" firstAttribute="leading" secondItem="tg7-El-yOp" secondAttribute="leading" id="3Qa-zO-1wH"/>
+                            <constraint firstItem="Rpp-cf-sWV" firstAttribute="trailing" secondItem="tg7-El-yOp" secondAttribute="trailing" id="JDs-jE-hBL"/>
+                            <constraint firstItem="Rpp-cf-sWV" firstAttribute="top" secondItem="tg7-El-yOp" secondAttribute="top" id="lIy-qe-UaQ"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="giq-UI-7SS"/>
+                    <navigationItem key="navigationItem" title="Search" id="QeW-An-yiT"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCz-7Z-LJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="-256"/>
+            <point key="canvasLocation" x="1044.9275362318842" y="-256.47321428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jk1-Qj-xtC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LJc-Nl-ATe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="giq-UI-7SS"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="o0q-cY-gMp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tne-Bh-8nc" kind="relationship" relationship="rootViewController" id="AiH-8y-nkA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="izo-9s-JgS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134.78260869565219" y="-256.47321428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

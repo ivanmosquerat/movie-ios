@@ -18,15 +18,15 @@ struct Person:Codable{
         knownForDepartment,
         deathday,
         name,
-        alsoKnownAs,
         biography,
         placeOfBirth,
         profilePath,
         imdbId,
         homepage:String?
+    let alsoKnownAs:[String]?
     
     static var `default`: Person{
-        .init(id: 0, gender: 0, popularity: 0.0, adult: false, birthday: "", knownForDepartment: "", deathday: "", name: "", alsoKnownAs: "", biography: "", placeOfBirth: "", profilePath: "", imdbId: "", homepage: "")
+        .init(id: 0, gender: 0, popularity: 0.0, adult: false, birthday: "", knownForDepartment: "", deathday: "", name: "", biography: "", placeOfBirth: "", profilePath: "", imdbId: "", homepage: "", alsoKnownAs: [])
     }
     
     enum CodingKeys: String, CodingKey{

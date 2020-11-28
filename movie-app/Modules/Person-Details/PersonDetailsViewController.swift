@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PersonDetailsViewController: UIViewController {
     
@@ -18,13 +19,45 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var biographyTextView: UITextView!
     
     // MARK: - Properties
-    var personeSelectedId:Int = 0
+    var personSelectedId:Int!
+    var id:Int = 0
+    private var apiService:ApiService = ApiService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(closeModally))
+        
+        let vc = MoviesDetailsViewController()
+        vc.closure = { id in
+            self.personSelectedId = id
+        }
+        
+        getDetails(personId: personSelectedId ?? 0)
     }
     
-    func getDetails(){}
+    func getDetails(personId:Int){
+        apiService.getPersonDetails(completion: {(person) in
+            
+            debugPrint(person.name)
+            DispatchQueue.main.async {
+                self.setupView(person: person)
+            }
+            
+            
+        }, url: "\(EndPoints.Person.personBase)\(personId )\(EndPoints.apiKey)")
+    }
     
-    func setupView(person:Person){}
+    func setupView(person:Person){
+        //nameLabel.text = person.name ?? "N/A"
+//        placeBirthdayLabel.text = person.placeOfBirth
+//        birthdayLabel.text = person.birthday
+//        biographyTextView.text = person.biography
+//
+//        profileImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(person.profilePath ?? "")"))
+    }
+    
+    @objc func closeModally(){
+        self.dismiss(animated: true, completion: nil)
+    }
 }
