@@ -16,13 +16,21 @@ struct Constants {
         static let ratedMovies = "\(EndPoints.domain)\(EndPoints.ratedMovie)\(EndPoints.apiKey)"
         static let upcomingMovies = "\(EndPoints.domain)\(EndPoints.upcomingMovie)\(EndPoints.apiKey)"
         
-        struct Movies {}
+        struct Movies {
+            
+            static let search = "\(EndPoints.domain)search/movie\(EndPoints.apiKey)&query="
+        }
         
         struct Series {
             static let trendingSeries = "\(EndPoints.domain)\(EndPoints.Series.trendingSeries)\(EndPoints.apiKey)"
             static let popularSeries = "\(EndPoints.domain)\(EndPoints.Series.popularSeries)\(EndPoints.apiKey)"
             static let ratedSeries = "\(EndPoints.domain)\(EndPoints.Series.ratedSeries)\(EndPoints.apiKey)"
         }
+        
+    }
+    
+    struct cellIds{
+        static let resultItemCellId = "ResultItemTableViewCell"
     }
 }
 

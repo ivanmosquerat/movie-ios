@@ -174,4 +174,35 @@ class ApiService: NSObject {
         }
         
     }
+    
+    // MARK: - Search methods
+    func getSearchMovie(completion: @escaping ([MovieData]) -> (), url: String){
+        
+        guard let url = URL(string: url) else { return }
+        
+        debugPrint(url)
+        
+        AF.request(url, method: .get, parameters: nil).response{(response: AFDataResponse<Data?>) in
+            
+            switch response.result{
+            
+            case .success(_):
+                if response.response?.statusCode == 200 {
+                    if let data = response.data{
+                        let dataFromService = try! JSONDecoder().decode(Movie.self, from: data)
+                        completion(dataFromService.results)
+                    }
+                    
+                }else{
+                    NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
+                }
+                
+            case .failure(let error):
+                
+                debugPrint(error)
+                
+                NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
+            }
+        }
+    }
 }

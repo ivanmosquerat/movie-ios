@@ -25,17 +25,29 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" estimatedRowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0o4-LY-pJD">
+                                <rect key="frame" x="0.0" y="196" width="414" height="617"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tg7-El-yOp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0o4-LY-pJD" firstAttribute="leading" secondItem="tg7-El-yOp" secondAttribute="leading" id="280-tk-bdC"/>
                             <constraint firstItem="Rpp-cf-sWV" firstAttribute="leading" secondItem="tg7-El-yOp" secondAttribute="leading" id="3Qa-zO-1wH"/>
+                            <constraint firstItem="0o4-LY-pJD" firstAttribute="trailing" secondItem="tg7-El-yOp" secondAttribute="trailing" id="8ow-UJ-C0C"/>
                             <constraint firstItem="Rpp-cf-sWV" firstAttribute="trailing" secondItem="tg7-El-yOp" secondAttribute="trailing" id="JDs-jE-hBL"/>
+                            <constraint firstItem="0o4-LY-pJD" firstAttribute="top" secondItem="Rpp-cf-sWV" secondAttribute="bottom" id="jIJ-l2-UcC"/>
                             <constraint firstItem="Rpp-cf-sWV" firstAttribute="top" secondItem="tg7-El-yOp" secondAttribute="top" id="lIy-qe-UaQ"/>
+                            <constraint firstItem="0o4-LY-pJD" firstAttribute="bottom" secondItem="tg7-El-yOp" secondAttribute="bottom" id="tBn-zZ-Vlj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="QeW-An-yiT"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="resultsTableView" destination="0o4-LY-pJD" id="ZzW-U8-qim"/>
+                        <outlet property="searchBar" destination="Rpp-cf-sWV" id="vfl-CU-vCa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCz-7Z-LJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

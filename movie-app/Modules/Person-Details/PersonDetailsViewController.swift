@@ -11,6 +11,10 @@ import Kingfisher
 
 class PersonDetailsViewController: UIViewController {
     
+    // MARK: - Properties
+    var personSelectedId = 0
+    private var apiService:ApiService!
+    
     // MARK: - Outlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,23 +22,17 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var birthdayLabel: UILabel!
     @IBOutlet weak var biographyTextView: UITextView!
     
-    // MARK: - Properties
-    var personSelectedId:Int!
-    var id:Int = 0
-    private var apiService:ApiService = ApiService()
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(closeModally))
         
-        let vc = MoviesDetailsViewController()
-        vc.closure = { id in
-            self.personSelectedId = id
-        }
-        
-        getDetails(personId: personSelectedId ?? 0)
+        apiService = ApiService()
+        getDetails(personId: personSelectedId )
     }
+    
+    
     
     func getDetails(personId:Int){
         apiService.getPersonDetails(completion: {(person) in

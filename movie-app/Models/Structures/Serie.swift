@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct Serie: Codable{
     let page:Int
     let results: [SerieData]

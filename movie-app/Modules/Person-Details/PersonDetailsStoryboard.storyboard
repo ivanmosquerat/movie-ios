@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xv2-l7-JED">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yjs-n2-hg5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -13,16 +13,16 @@
         <!--Details-->
         <scene sceneID="QYb-2T-Ugg">
             <objects>
-                <viewController storyboardIdentifier="PersonDetailsViewController" title="Details" modalPresentationStyle="pageSheet" id="yjs-n2-hg5" customClass="PersonDetailsViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonDetailsViewController" title="Details" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yjs-n2-hg5" customClass="PersonDetailsViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UVt-OH-AnP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhU-Xw-G5f">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXP-Qt-Ndu">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v9Q-gf-LU5">
                                                 <rect key="frame" x="20" y="20" width="140" height="140"/>
@@ -118,29 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbc-Be-We6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885.50724637681162" y="76.339285714285708"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4KN-TH-BFi">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xv2-l7-JED" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="waO-uR-b3t">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sip-Xa-Jbs">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="yjs-n2-hg5" kind="relationship" relationship="rootViewController" id="3Q8-Ni-3Dz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V6j-ri-ueI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-24.637681159420293" y="76.339285714285708"/>
+            <point key="canvasLocation" x="1795.6521739130437" y="76.339285714285708"/>
         </scene>
     </scenes>
     <resources>
