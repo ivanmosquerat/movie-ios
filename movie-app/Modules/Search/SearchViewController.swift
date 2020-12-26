@@ -11,6 +11,7 @@ import UIKit
 class SearchViewController: UIViewController {
     
     // MARK: - Properties
+    private var movieSelected: MovieData = MovieData.default
     private var resultsDataSource: [MovieData] = []
     private var apiService : ApiService!
     private var isSearchBarEmpty:Bool {
@@ -52,10 +53,9 @@ class SearchViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self.resultsTableView.reloadData()
-                //self.setupUi()
             }
             
-        }, url: "\(Constants.Server.Movies.search)\(query)")
+        }, url: "\(Constants.Server.Movies.search)", query: query)
     }
     
     
@@ -77,9 +77,25 @@ extension SearchViewController: UISearchBarDelegate{
     }
 }
 
+// MARK: - Navigation
+extension SearchViewController{
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == Constants.Segues.segueToMovieDetail, let movieDetailInstance = segue.destination as? MoviesDetailsViewController {
+            movieDetailInstance.movie = movieSelected
+        }
+    }
+}
+
 // MARK: - TableViewDelegate
 extension SearchViewController:UITableViewDelegate{
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        movieSelected = resultsDataSource[indexPath.row]
+        performSegue(withIdentifier: Constants.Segues.segueToMovieDetail, sender: nil)
+    }
 }
 
 // MARK: - TableViewDataSource

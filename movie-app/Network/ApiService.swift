@@ -29,6 +29,7 @@ class ApiService: NSObject {
                         completion(dataFromService.results)
                     }
                 }else{
+                    
                     NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
                 }
                 
@@ -51,10 +52,13 @@ class ApiService: NSObject {
                         let dataFromService = try! JSONDecoder().decode(MovieData.self, from: data)
                         completion(dataFromService)
                     }else{
+                        debugPrint(response.error.debugDescription)
                         NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
                     }
                 }
-            case .failure(_):
+            case .failure(let error):
+                
+                debugPrint(error)
                 
                 NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
             }
@@ -79,6 +83,7 @@ class ApiService: NSObject {
                     }
                     
                 }else{
+                    debugPrint(response.response)
                     NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
                 }
                 
@@ -176,13 +181,14 @@ class ApiService: NSObject {
     }
     
     // MARK: - Search methods
-    func getSearchMovie(completion: @escaping ([MovieData]) -> (), url: String){
+    func getSearchMovie(completion: @escaping ([MovieData]) -> (), url: String, query: String){
         
-        guard let url = URL(string: url) else { return }
+        //guard let url = "\(url)\(query)" else { return }
         
-        debugPrint(url)
+        let urlRequest = Utilities().encodingUrl(urlString: "\(url)\(query)")
+        debugPrint(urlRequest)
         
-        AF.request(url, method: .get, parameters: nil).response{(response: AFDataResponse<Data?>) in
+        AF.request(urlRequest, method: .get, parameters: nil).response{(response: AFDataResponse<Data?>) in
             
             switch response.result{
             

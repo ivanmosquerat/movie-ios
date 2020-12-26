@@ -21,7 +21,6 @@ class ResultItemTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,7 +33,8 @@ class ResultItemTableViewCell: UITableViewCell {
         
         titleLabel.text = movie.title ?? "Title not available"
         voteLabel.text = "\(movie.voteAverage ?? 0.0)"
-        genreLabel.text = movie.genres?.first?.name ?? "Genre not avaliable"
+        
+        genreLabel.text = Utilities().setupLanguage(movie: movie)
         yearLabel.text = movie.releaseDate
         
         posterImageView.layer.cornerRadius = 5

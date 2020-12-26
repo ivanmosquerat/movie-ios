@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class PersonDetailsViewController: UIViewController {
+class PersonDetailsViewController: UIViewController, UINavigationBarDelegate {
     
     // MARK: - Properties
     var personSelectedId = 0
@@ -26,6 +26,21 @@ class PersonDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+//        let height: CGFloat = 75
+//        let navbar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
+//        navbar.backgroundColor = UIColor.white
+//        navbar.delegate = self
+//
+//        let navItem = UINavigationItem()
+//        navItem.title = "Title"
+//        navItem.leftBarButtonItem = UIBarButtonItem(title: "Left Button", style: .plain, target: self, action: nil)
+//        navItem.rightBarButtonItem = UIBarButtonItem(title: "Right Button", style: .plain, target: self, action: nil)
+//
+//        navbar.items = [navItem]
+//
+//        view.addSubview(navbar)
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(closeModally))
         
         apiService = ApiService()
@@ -37,7 +52,7 @@ class PersonDetailsViewController: UIViewController {
     func getDetails(personId:Int){
         apiService.getPersonDetails(completion: {(person) in
             
-            debugPrint(person.name)
+            
             DispatchQueue.main.async {
                 self.setupView(person: person)
             }
@@ -47,12 +62,14 @@ class PersonDetailsViewController: UIViewController {
     }
     
     func setupView(person:Person){
-        //nameLabel.text = person.name ?? "N/A"
-//        placeBirthdayLabel.text = person.placeOfBirth
-//        birthdayLabel.text = person.birthday
-//        biographyTextView.text = person.biography
-//
-//        profileImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(person.profilePath ?? "")"))
+        nameLabel.text = person.name ?? "N/A"
+        placeBirthdayLabel.text = person.placeOfBirth
+        birthdayLabel.text = person.birthday
+        biographyTextView.text = person.biography
+
+        profileImageView.layer.cornerRadius = 5
+        profileImageView.layer.masksToBounds = true
+        profileImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(person.profilePath ?? "")"))
     }
     
     @objc func closeModally(){

@@ -13,21 +13,21 @@
         <!--Details-->
         <scene sceneID="QYb-2T-Ugg">
             <objects>
-                <viewController storyboardIdentifier="PersonDetailsViewController" title="Details" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yjs-n2-hg5" customClass="PersonDetailsViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonDetailsViewController" title="Details" modalPresentationStyle="pageSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yjs-n2-hg5" customClass="PersonDetailsViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UVt-OH-AnP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhU-Xw-G5f">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXP-Qt-Ndu">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v9Q-gf-LU5">
-                                                <rect key="frame" x="20" y="20" width="140" height="140"/>
+                                                <rect key="frame" x="20" y="20" width="140" height="200"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="140" id="6WL-ZB-PtJ"/>
+                                                    <constraint firstAttribute="height" constant="200" id="6WL-ZB-PtJ"/>
                                                     <constraint firstAttribute="width" constant="140" id="Dcq-rd-zh2"/>
                                                 </constraints>
                                             </imageView>
@@ -58,13 +58,13 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biography" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6b-V1-0tP">
-                                                <rect key="frame" x="20" y="180" width="374" height="24"/>
+                                                <rect key="frame" x="20" y="240" width="374" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7Q-5A-lLw">
-                                                <rect key="frame" x="20" y="214" width="374" height="183.5"/>
+                                                <rect key="frame" x="20" y="274" width="374" height="183.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -75,10 +75,10 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="F7Q-5A-lLw" firstAttribute="leading" secondItem="aXP-Qt-Ndu" secondAttribute="leading" constant="20" id="1LG-jg-cSq"/>
-                                            <constraint firstItem="v9Q-gf-LU5" firstAttribute="top" secondItem="aXP-Qt-Ndu" secondAttribute="top" constant="20" id="F53-5h-1wD"/>
                                             <constraint firstItem="xe7-L1-IBQ" firstAttribute="top" secondItem="aXP-Qt-Ndu" secondAttribute="top" constant="20" id="Py2-I5-Txe"/>
                                             <constraint firstItem="v9Q-gf-LU5" firstAttribute="leading" secondItem="aXP-Qt-Ndu" secondAttribute="leading" constant="20" id="QfA-UH-OKb"/>
                                             <constraint firstAttribute="trailing" secondItem="F7Q-5A-lLw" secondAttribute="trailing" constant="20" id="cj3-uo-I1m"/>
+                                            <constraint firstItem="v9Q-gf-LU5" firstAttribute="top" secondItem="aXP-Qt-Ndu" secondAttribute="top" constant="20" id="dre-mE-ta8"/>
                                             <constraint firstItem="xe7-L1-IBQ" firstAttribute="leading" secondItem="v9Q-gf-LU5" secondAttribute="trailing" constant="10" id="lKn-zG-P0N"/>
                                             <constraint firstAttribute="trailing" secondItem="xe7-L1-IBQ" secondAttribute="trailing" constant="20" id="lzi-fu-Eih"/>
                                             <constraint firstItem="S6b-V1-0tP" firstAttribute="leading" secondItem="aXP-Qt-Ndu" secondAttribute="leading" constant="20" id="pwJ-Bt-ay5"/>
@@ -107,7 +107,8 @@
                             <constraint firstItem="EhU-Xw-G5f" firstAttribute="top" secondItem="2w5-Qk-wlr" secondAttribute="top" id="pIN-gd-tnu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Info" id="KX6-TO-kVJ"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="biographyTextView" destination="F7Q-5A-lLw" id="UwU-3q-ltq"/>
                         <outlet property="birthdayLabel" destination="Q0a-FP-ebr" id="4l1-hT-srh"/>
@@ -118,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbc-Be-We6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1795.6521739130437" y="76.339285714285708"/>
+            <point key="canvasLocation" x="2705.7971014492755" y="76.339285714285708"/>
         </scene>
     </scenes>
     <resources>

@@ -91,7 +91,7 @@ class MoviesDetailsViewController: UIViewController {
         
         overviewTextView.text = movie.overview ?? "Overview not avaliable"
         
-        languageLabel.text = "\(setupLanguage(movie: movie))"
+        languageLabel.text = Utilities().setupLanguage(movie: movie)
         
         statusLabel.text = movie.status ?? "Status not avaliable"
         
@@ -134,18 +134,6 @@ class MoviesDetailsViewController: UIViewController {
         genreLabel.text = movie.genres?.first?.name ?? "N/A"
     }
     
-    private func setupLanguage(movie:MovieData) -> String {
-        
-        var languageText = "N/A"
-        for language in LanguagesFlags{
-            if (language.key == movie.originalLanguage){
-                languageText = language.value
-            }
-        }
-        
-        return languageText
-    }
-    
     private func setupCastCollection(movieCredits:MovieCredits){
         if let castArray = movieCredits.cast {
             for cast in castArray {
@@ -167,12 +155,13 @@ class MoviesDetailsViewController: UIViewController {
 
 // MARK: - Navigation
 extension MoviesDetailsViewController{
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-//        if segue.identifier == segueIdentifierToPerosnDetail, let personDetailViewController = segue.destination as? PersonDetailsViewController{
-//
-//            personDetailViewController.personSelectedId = personSelectedId
-//        }
+        if segue.identifier == segueIdentifierToPerosnDetail, let personDetailViewController = segue.destination as? PersonDetailsViewController{
+
+            personDetailViewController.personSelectedId = personSelectedId
+        }
     }
 }
 
@@ -183,6 +172,14 @@ extension MoviesDetailsViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
+        if collectionView == self.castCollectionView{
+            personSelectedId = castDataSource[indexPath.row].id ?? 0
+        
+        }else{
+            personSelectedId = crewDataSource[indexPath.row].id ?? 0
+        }
+        
+        performSegue(withIdentifier: segueIdentifierToPerosnDetail, sender: nil)
         
 //        let personDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "PersonDetailsViewController") as! PersonDetailsViewController
 //

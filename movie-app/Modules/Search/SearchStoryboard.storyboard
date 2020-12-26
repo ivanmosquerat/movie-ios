@@ -47,11 +47,22 @@
                     <connections>
                         <outlet property="resultsTableView" destination="0o4-LY-pJD" id="ZzW-U8-qim"/>
                         <outlet property="searchBar" destination="Rpp-cf-sWV" id="vfl-CU-vCa"/>
+                        <segue destination="NCh-Fj-hW2" kind="show" identifier="segueToMovieDetail" id="m4H-Qx-5wM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCz-7Z-LJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1044.9275362318842" y="-256.47321428571428"/>
+        </scene>
+        <!--MovieDetailsStoryboard-->
+        <scene sceneID="Uzv-zS-0no">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MovieDetailsStoryboard" id="NCh-Fj-hW2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4xs-1r-ggA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dim-SE-kcK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845" y="-285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jk1-Qj-xtC">

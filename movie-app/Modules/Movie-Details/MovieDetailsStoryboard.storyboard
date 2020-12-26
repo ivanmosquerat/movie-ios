@@ -228,7 +228,7 @@
                         <outlet property="voteLabel" destination="jZr-2C-9BP" id="Uyk-2r-XsQ"/>
                         <outlet property="voteView" destination="aro-6M-C4N" id="Q4l-cQ-lkj"/>
                         <outlet property="yearLabel" destination="AfN-fb-ytP" id="BAn-nt-BHw"/>
-                        <segue destination="0ka-9y-dzA" kind="presentation" identifier="showPersonDetail" modalPresentationStyle="currentContext" id="GHP-zD-EX0"/>
+                        <segue destination="0ka-9y-dzA" kind="presentation" identifier="showPersonDetail" destinationCreationSelector="Done" modalPresentationStyle="pageSheet" id="GHP-zD-EX0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRV-HR-vj5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

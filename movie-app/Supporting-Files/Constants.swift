@@ -32,6 +32,10 @@ struct Constants {
     struct cellIds{
         static let resultItemCellId = "ResultItemTableViewCell"
     }
+    
+    struct Segues{
+        static let segueToMovieDetail = "segueToMovieDetail"
+    }
 }
 
 

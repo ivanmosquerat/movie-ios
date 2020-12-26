@@ -33,6 +33,7 @@ class SeasonItemCollectionViewCell: UICollectionViewCell {
         }else{
             posterImageView.image = UIImage(named: "season_default")
         }
+        
         seasonNumberLabel.text = "Season \(season.seasonNumber ?? 1)"
         episodesNumberLabel.text = "\(season.episodeCount ?? 0) Episodes"
     }
