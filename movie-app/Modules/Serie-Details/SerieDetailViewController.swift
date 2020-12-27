@@ -30,8 +30,8 @@ class SerieDetailViewController: UIViewController {
     
     // MARK: - Properties
     private var serieYearRelease:String = ""
-    private let cellSeasonID = "SeasonItemCollectionViewCell"
-    private var cellPersonId = "PersonCollectionViewCell"
+    private let seasonCellId = Constants.cellIds.seasonCellId
+    private var personCellId = Constants.cellIds.personCellId
     var serie:SerieData = SerieData.default
     private var serieCredits:MovieCredits = MovieCredits.default
     private var seasonsDatasource:[Season] = []
@@ -84,15 +84,15 @@ class SerieDetailViewController: UIViewController {
         apiService = ApiService()
         seasonsCollectionView.delegate = self
         seasonsCollectionView.dataSource = self
-        seasonsCollectionView.register(UINib(nibName: cellSeasonID, bundle: nil), forCellWithReuseIdentifier: cellSeasonID)
+        seasonsCollectionView.register(UINib(nibName: seasonCellId, bundle: nil), forCellWithReuseIdentifier: seasonCellId)
         
         castCollectionView.delegate = self
         castCollectionView.dataSource = self
-        castCollectionView.register(UINib(nibName: cellPersonId, bundle: nil), forCellWithReuseIdentifier: cellPersonId)
+        castCollectionView.register(UINib(nibName: personCellId, bundle: nil), forCellWithReuseIdentifier: personCellId)
         
         crewCollectionView.delegate = self
         crewCollectionView.dataSource = self
-        crewCollectionView.register(UINib(nibName: cellPersonId, bundle: nil), forCellWithReuseIdentifier: cellPersonId)
+        crewCollectionView.register(UINib(nibName: personCellId, bundle: nil), forCellWithReuseIdentifier: personCellId)
     }
     
     private func getSerieDetails(serieId: Int){
@@ -185,7 +185,7 @@ extension SerieDetailViewController:UICollectionViewDataSource{
         
         if collectionView == self.seasonsCollectionView{
             
-            let cell = seasonsCollectionView.dequeueReusableCell(withReuseIdentifier: cellSeasonID, for: indexPath)
+            let cell = seasonsCollectionView.dequeueReusableCell(withReuseIdentifier: seasonCellId, for: indexPath)
             
             if let cell = cell as? SeasonItemCollectionViewCell{
                 
@@ -196,7 +196,7 @@ extension SerieDetailViewController:UICollectionViewDataSource{
             
         }else{
             
-            let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: cellPersonId, for: indexPath)
+            let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: personCellId, for: indexPath)
             
             if let cell = cell as? PersonCollectionViewCell{
                 

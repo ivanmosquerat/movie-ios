@@ -11,15 +11,10 @@ import UIKit
 class MoviesViewController: UIViewController {
     // MARK: - Properties
     
-    private let segueIdentifierToMovieDetail = "showMovieDetail"
-    private let cellId = "MovieSectionTableViewCell"
-    private let sectionsTitles = ["Trending","Popular","Rated","Upcoming"]
-    private var moviesBySection:[String:[MovieData]] = [
-        "Trending":[MovieData](),
-        "Popular":[MovieData](),
-        "Rated":[MovieData](),
-        "Upcoming":[MovieData](),
-    ]
+    private let segueIdentifierToMovieDetail = Constants.Segues.segueToMovieDetail
+    private let movieSectionCellId = Constants.cellIds.movieSectionCellId
+    private let sectionsTitles = Constants.Server.Movies.sectionsTitles
+    private var moviesBySection = Constants.Server.Movies.moviesBySection
     private var viewModel: MovieviewModel!
     private var movieSelectedOnCollection:MovieData = MovieData.default
     
@@ -45,7 +40,7 @@ class MoviesViewController: UIViewController {
         tableview.dataSource = self
         tableview.tableFooterView = UIView()
         tableview.allowsSelection = false
-        tableview.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
+        tableview.register(UINib(nibName: movieSectionCellId, bundle: nil), forCellReuseIdentifier: movieSectionCellId)
     }
     
     private func callToViewModelForUpdate(){
@@ -108,7 +103,7 @@ extension MoviesViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: movieSectionCellId, for: indexPath)
         
         
         if let cell = cell as? MovieSectionTableViewCell{

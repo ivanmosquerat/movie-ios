@@ -42,7 +42,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="PQb-nw-w3L" id="zfw-re-6Am"/>
                         <outlet property="tableview" destination="bFr-aZ-Pw2" id="aDN-hR-BXr"/>
-                        <segue destination="u5M-SM-Sy7" kind="show" identifier="showMovieDetail" id="FZc-FF-cFn"/>
+                        <segue destination="u5M-SM-Sy7" kind="show" identifier="segueToMovieDetail" id="FZc-FF-cFn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BxD-Ce-vSL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

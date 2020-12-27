@@ -12,7 +12,7 @@ class MovieSectionTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     private var movies:[MovieData] = []
-    private var cellId = "ItemMovieCollectionViewCell"
+    private var movieItemCellId = Constants.cellIds.movieItemCellId
     var clousureMovieSelected:((_ movie:MovieData)-> Void)?
     
     // MARK: - Outlets
@@ -24,19 +24,16 @@ class MovieSectionTableViewCell: UITableViewCell {
     @IBAction func seeAllButtonAction(_ sender: Any) {
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+        collectionView.register(UINib(nibName: movieItemCellId, bundle: nil), forCellWithReuseIdentifier: movieItemCellId)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     func setupCellWith(title:String, movies:[String:[MovieData]]){
@@ -75,7 +72,7 @@ extension MovieSectionTableViewCell:UICollectionViewDelegate{
                 clousureMovieSelected!(self.movies[indexPath.row])
             }
             
-            tableController.performSegue(withIdentifier: "showMovieDetail", sender: nil)
+            tableController.performSegue(withIdentifier: Constants.Segues.segueToMovieDetail, sender: nil)
         }
         
     }
@@ -90,7 +87,7 @@ extension MovieSectionTableViewCell:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieItemCellId, for: indexPath)
         
         if let cell = cell as? ItemMovieCollectionViewCell{
            

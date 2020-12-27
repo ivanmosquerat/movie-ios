@@ -12,14 +12,10 @@ import UIKit
 class SeriesViewController: UIViewController {
     
     //MARK: - Properties
-    private let segueIndetifierToSerieDetail = "showSerieDetail"
-    private let cellId = "SectionSerieTableViewCell"
-    private let sectionsTitles = ["Trending","Popular","Rated"]
-    private var seriesBySection:[String:[SerieData]] = [
-        "Trending":[SerieData](),
-        "Popular":[SerieData](),
-        "Rated":[SerieData](),
-    ]
+    private let segueIndetifierToSerieDetail = Constants.Segues.segueToSerieDetail
+    private let serieSectionCellId = Constants.cellIds.serieSectionCellId
+    private let sectionsTitles = Constants.Server.Series.sectionsTitles
+    private var seriesBySection = Constants.Server.Series.seriesBySection
     private var viewModel: SerieViewModel!
     private var serieSelectedOnCollection:SerieData = SerieData.default
     
@@ -38,7 +34,7 @@ class SeriesViewController: UIViewController {
         tableViewSeries.dataSource = self
         tableViewSeries.tableFooterView = UIView()
         tableViewSeries.allowsSelection = false
-        tableViewSeries.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
+        tableViewSeries.register(UINib(nibName: serieSectionCellId, bundle: nil), forCellReuseIdentifier: serieSectionCellId)
     }
     
     private func callToViewModelForUpdate(){
@@ -92,7 +88,7 @@ extension SeriesViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell =  tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell =  tableView.dequeueReusableCell(withIdentifier: serieSectionCellId, for: indexPath)
         
         if let cell = cell as? SectionSerieTableViewCell{
             

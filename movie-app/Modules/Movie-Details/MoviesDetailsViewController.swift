@@ -37,21 +37,17 @@ class MoviesDetailsViewController: UIViewController {
     
     
     var vc:PersonDetailsViewController!
-    private var cellId = "PersonCollectionViewCell"
+    private var personCellId = Constants.cellIds.personCellId
     private var apiService : ApiService!
-    private let segueIdentifierToPerosnDetail = "showPersonDetail"
+    private let segueToPersonDetail = Constants.Segues.segueToPersonDetail
     var closure:((_ id:Int) -> Void )?
     
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-//        vc = PersonDetailsViewController()
-        
-
         setCollectionsView()
         getMovieDetails(movieId: movie.id ?? 0)
         getMovieCredits(movieId: movie.id ?? 0)
-        //setupUi()
     }
     
     // MARK: - Methods
@@ -61,8 +57,8 @@ class MoviesDetailsViewController: UIViewController {
         castCollectionView.dataSource = self
         crewCollectionView.delegate = self
         crewCollectionView.dataSource = self
-        castCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
-        crewCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+        castCollectionView.register(UINib(nibName: personCellId, bundle: nil), forCellWithReuseIdentifier: personCellId)
+        crewCollectionView.register(UINib(nibName: personCellId, bundle: nil), forCellWithReuseIdentifier: personCellId)
     }
     
     private func setupUi(){
@@ -150,7 +146,6 @@ class MoviesDetailsViewController: UIViewController {
         }
     }
     
-
 }
 
 // MARK: - Navigation
@@ -158,7 +153,7 @@ extension MoviesDetailsViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == segueIdentifierToPerosnDetail, let personDetailViewController = segue.destination as? PersonDetailsViewController{
+        if segue.identifier == segueToPersonDetail, let personDetailViewController = segue.destination as? PersonDetailsViewController{
 
             personDetailViewController.personSelectedId = personSelectedId
         }
@@ -179,23 +174,7 @@ extension MoviesDetailsViewController: UICollectionViewDelegate{
             personSelectedId = crewDataSource[indexPath.row].id ?? 0
         }
         
-        performSegue(withIdentifier: segueIdentifierToPerosnDetail, sender: nil)
-        
-//        let personDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "PersonDetailsViewController") as! PersonDetailsViewController
-//
-//        if collectionView == self.castCollectionView{
-//            personSelectedId = castDataSource[indexPath.row].id ?? 0
-//
-//        }else{
-//            personSelectedId = crewDataSource[indexPath.row].id ?? 0
-//        }
-//
-//
-//        personDetailViewController.personSelectedId = personSelectedId
-//        personDetailViewController.modalPresentationStyle = .pageSheet
-//
-//        self.present(personDetailViewController, animated: true, completion: nil)
-//        //performSegue(withIdentifier: segueIdentifierToPerosnDetail, sender: nil)
+        performSegue(withIdentifier: segueToPersonDetail, sender: nil)
     }
 }
 
@@ -214,7 +193,7 @@ extension MoviesDetailsViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: personCellId, for: indexPath)
         
         if let cell = cell as? PersonCollectionViewCell{
             if collectionView == self.castCollectionView{

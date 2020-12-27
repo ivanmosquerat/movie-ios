@@ -14,7 +14,7 @@ class SectionSerieTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     private var series:[SerieData] = []
-    private var cellId = "ItemSerieCollectionViewCell"
+    private var serieItemCellId = Constants.cellIds.serieItemCellId
     var closureSerieSelected:((_ serie:SerieData) -> Void)?
     
     // MARK: - Outlets
@@ -26,19 +26,17 @@ class SectionSerieTableViewCell: UITableViewCell {
     @IBAction func seeAllButtonAction(_ sender: Any) {
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         seriesCollectionView.delegate = self
         seriesCollectionView.dataSource = self
-        seriesCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+        seriesCollectionView.register(UINib(nibName: serieItemCellId, bundle: nil), forCellWithReuseIdentifier: serieItemCellId)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     func setupCellWith(title:String, series:[String:[SerieData]]){
@@ -74,11 +72,8 @@ extension SectionSerieTableViewCell:UICollectionViewDelegate{
             if closureSerieSelected != nil{
                 closureSerieSelected!(self.series[indexPath.row])
             }
-            tableController.performSegue(withIdentifier: "showSerieDetail", sender: nil)
+            tableController.performSegue(withIdentifier: Constants.Segues.segueToSerieDetail, sender: nil)
         }
-        
-        
-        
     }
 }
 
@@ -91,7 +86,7 @@ extension SectionSerieTableViewCell:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: serieItemCellId, for: indexPath)
         
         if let cell = cell as? ItemSerieCollectionViewCell{
             
