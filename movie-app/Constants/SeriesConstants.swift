@@ -10,4 +10,17 @@ import Foundation
 
 struct SeriesConstants {
     
+    static let sectionsTitles = ["Trending","Popular","Rated"]
+    
+    static let seriesBySection:[String:[SerieData]] = [
+        "Trending":[SerieData](),
+        "Popular":[SerieData](),
+        "Rated":[SerieData](),
+    ]
+    
+    static let trendingSeries = "\(EndPoints.domain)\(EndPoints.Series.trendingSeries)\(EndPoints.apiKey)"
+    
+    static let popularSeries = "\(EndPoints.domain)\(EndPoints.Series.popularSeries)\(EndPoints.apiKey)"
+    
+    static let ratedSeries = "\(EndPoints.domain)\(EndPoints.Series.ratedSeries)\(EndPoints.apiKey)"
 }

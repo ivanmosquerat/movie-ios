@@ -12,7 +12,7 @@ class MovieSectionTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     private var movies:[MovieData] = []
-    private var movieItemCellId = Constants.cellIds.movieItemCellId
+    private var movieItemCellId = CellIds.movieItemCellId
     var clousureMovieSelected:((_ movie:MovieData)-> Void)?
     
     // MARK: - Outlets
@@ -72,7 +72,7 @@ extension MovieSectionTableViewCell:UICollectionViewDelegate{
                 clousureMovieSelected!(self.movies[indexPath.row])
             }
             
-            tableController.performSegue(withIdentifier: Constants.Segues.segueToMovieDetail, sender: nil)
+            tableController.performSegue(withIdentifier: SeguesIds.segueToMovieDetail, sender: nil)
         }
         
     }

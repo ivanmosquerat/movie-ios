@@ -37,9 +37,9 @@ class MoviesDetailsViewController: UIViewController {
     
     
     var vc:PersonDetailsViewController!
-    private var personCellId = Constants.cellIds.personCellId
+    private var personCellId = CellIds.personCellId
     private var apiService : ApiService!
-    private let segueToPersonDetail = Constants.Segues.segueToPersonDetail
+    private let segueToPersonDetail = SeguesIds.segueToPersonDetail
     var closure:((_ id:Int) -> Void )?
     
     // MARK: - Init

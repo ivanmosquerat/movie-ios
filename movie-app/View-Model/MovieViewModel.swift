@@ -68,27 +68,27 @@ class MovieviewModel: NSObject {
         
         self.apiService.getMovieBySection(completion: { (trendingMovieData) in
             self.trendingMovieData = trendingMovieData
-        }, url: Constants.Server.trendingMovies)
+        }, url: MoviesConstants.trendingMovies)
     }
     
     func getPopularMovies(){
         
         self.apiService.getMovieBySection(completion: { (popularMovieData) in
             self.popularMovieData = popularMovieData
-        }, url: Constants.Server.popularMovies)
+        }, url: MoviesConstants.popularMovies)
     }
     
     func getRatedMovies(){
         
         self.apiService.getMovieBySection(completion: {(ratedMovieData) in
             self.ratedMovieData = ratedMovieData
-        }, url: Constants.Server.ratedMovies)
+        }, url: MoviesConstants.ratedMovies)
     }
     
     func getMoviesUpcoming(){
         self.apiService.getMovieBySection(completion: {(upcomingMovieData) in
             self.upcomingMovieData = upcomingMovieData
-        }, url: Constants.Server.upcomingMovies)
+        }, url: MoviesConstants.upcomingMovies)
     }
     
 }

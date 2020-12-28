@@ -11,10 +11,10 @@ import UIKit
 class MoviesViewController: UIViewController {
     // MARK: - Properties
     
-    private let segueIdentifierToMovieDetail = Constants.Segues.segueToMovieDetail
-    private let movieSectionCellId = Constants.cellIds.movieSectionCellId
-    private let sectionsTitles = Constants.Server.Movies.sectionsTitles
-    private var moviesBySection = Constants.Server.Movies.moviesBySection
+    private let segueIdentifierToMovieDetail = SeguesIds.segueToMovieDetail
+    private let movieSectionCellId = CellIds.movieSectionCellId
+    private let sectionsTitles = MoviesConstants.sectionsTitles
+    private var moviesBySection = MoviesConstants.moviesBySection
     private var viewModel: MovieviewModel!
     private var movieSelectedOnCollection:MovieData = MovieData.default
     

@@ -14,7 +14,7 @@ class SectionSerieTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     private var series:[SerieData] = []
-    private var serieItemCellId = Constants.cellIds.serieItemCellId
+    private var serieItemCellId = CellIds.serieItemCellId
     var closureSerieSelected:((_ serie:SerieData) -> Void)?
     
     // MARK: - Outlets
@@ -72,7 +72,7 @@ extension SectionSerieTableViewCell:UICollectionViewDelegate{
             if closureSerieSelected != nil{
                 closureSerieSelected!(self.series[indexPath.row])
             }
-            tableController.performSegue(withIdentifier: Constants.Segues.segueToSerieDetail, sender: nil)
+            tableController.performSegue(withIdentifier: SeguesIds.segueToSerieDetail, sender: nil)
         }
     }
 }

@@ -13,7 +13,11 @@ var LanguagesFlags: [String:String] = [
     "es" : "Spanish 🇪🇸",
     "ja" : "Japanese 🇯🇵",
     "de" : "German 🇩🇪",
-    "fr" : "French 🇫🇷"
+    "fr" : "French 🇫🇷",
+    "pt": "Português 🇵🇹",
+    "it" : "Italian 🇮🇹",
+    "nl" : "Dutch 🇳🇱",
+    "zh" : "Mandarin 🇨🇳",
 ]
 
 

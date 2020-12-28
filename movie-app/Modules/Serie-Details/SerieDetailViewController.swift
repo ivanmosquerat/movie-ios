@@ -30,14 +30,15 @@ class SerieDetailViewController: UIViewController {
     
     // MARK: - Properties
     private var serieYearRelease:String = ""
-    private let seasonCellId = Constants.cellIds.seasonCellId
-    private var personCellId = Constants.cellIds.personCellId
+    private let seasonCellId = CellIds.seasonCellId
+    private var personCellId = CellIds.personCellId
     var serie:SerieData = SerieData.default
     private var serieCredits:MovieCredits = MovieCredits.default
     private var seasonsDatasource:[Season] = []
     private var castDataSource:[CastMember] = []
     private var crewDataSource:[CrewMember] = []
     private var apiService : ApiService!
+    private var personSelectedId : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,9 +161,29 @@ class SerieDetailViewController: UIViewController {
     
 }
 
+// MARK: - Navigatio
+extension SerieDetailViewController{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SeguesIds.segueToPersonDetail, let personDetailViewController = segue.destination as? PersonDetailsViewController{
+            
+            personDetailViewController.personSelectedId = personSelectedId
+        }
+    }
+}
+
 // MARK: - CollectionViewDelegate
 extension SerieDetailViewController:UICollectionViewDelegate{
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if collectionView == self.castCollectionView{
+            personSelectedId = castDataSource[indexPath.row].id ?? 0
+        }else{
+            personSelectedId = crewDataSource[indexPath.row].id ?? 0
+        }
+        
+        performSegue(withIdentifier: SeguesIds.segueToPersonDetail, sender: nil)
+    }
 }
 
 // MARK: - CollectionViewDataSource

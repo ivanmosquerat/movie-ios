@@ -251,11 +251,20 @@
                         <outlet property="voteLabel" destination="kh2-iq-q4F" id="GuK-RP-PTx"/>
                         <outlet property="voteView" destination="hEs-CQ-bD0" id="3qw-59-wqD"/>
                         <outlet property="yearLabel" destination="6tA-md-JLW" id="pH0-Uw-s2X"/>
+                        <segue destination="aMJ-iH-vmb" kind="presentation" identifier="showPersonDetail" modalPresentationStyle="pageSheet" id="uNa-HE-Zuk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krb-Pf-rR1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73.913043478260875" y="56.919642857142854"/>
+        </scene>
+        <!--PersonDetailsStoryboard-->
+        <scene sceneID="DfU-GO-VfL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PersonDetailsStoryboard" id="aMJ-iH-vmb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DEe-97-hdg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947" y="20"/>
         </scene>
     </scenes>
     <resources>

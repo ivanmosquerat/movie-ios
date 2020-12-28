@@ -46,14 +46,14 @@ class SerieViewModel: NSObject {
     
     // MARK: - Public methods
     func getTrendingSeries(){
-        self.apiService.getSeriesBySection(completion: {(trendingSerieData) in self.trendingSerieData = trendingSerieData}, url: Constants.Server.Series.trendingSeries)
+        self.apiService.getSeriesBySection(completion: {(trendingSerieData) in self.trendingSerieData = trendingSerieData}, url: SeriesConstants.trendingSeries)
     }
     
     func getPopularSeries(){
-        self.apiService.getSeriesBySection(completion: {(popularSerieData) in self.popularSerieData = popularSerieData}, url: Constants.Server.Series.popularSeries)
+        self.apiService.getSeriesBySection(completion: {(popularSerieData) in self.popularSerieData = popularSerieData}, url: SeriesConstants.popularSeries)
     }
     
     func getRatedSeries(){
-        self.apiService.getSeriesBySection(completion: {(ratedSerieData) in self.ratedSerieData = ratedSerieData}, url: Constants.Server.Series.ratedSeries)
+        self.apiService.getSeriesBySection(completion: {(ratedSerieData) in self.ratedSerieData = ratedSerieData}, url: SeriesConstants.ratedSeries)
     }
 }

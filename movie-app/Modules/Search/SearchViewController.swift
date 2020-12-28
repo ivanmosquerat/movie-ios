@@ -42,7 +42,7 @@ class SearchViewController: UIViewController {
         resultsTableView.delegate = self
         resultsTableView.dataSource = self
         resultsTableView.tableFooterView = UIView()
-        resultsTableView.register(UINib(nibName: Constants.cellIds.resultItemCellId, bundle: nil) , forCellReuseIdentifier: Constants.cellIds.resultItemCellId)
+        resultsTableView.register(UINib(nibName: CellIds.resultItemCellId, bundle: nil) , forCellReuseIdentifier: CellIds.resultItemCellId)
     }
     
     private func search(query:String){
@@ -55,7 +55,7 @@ class SearchViewController: UIViewController {
                 self.resultsTableView.reloadData()
             }
             
-        }, url: "\(Constants.Server.Movies.search)", query: query)
+        }, url: "\(MoviesConstants.search)", query: query)
     }
     
     
@@ -82,7 +82,7 @@ extension SearchViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == Constants.Segues.segueToMovieDetail, let movieDetailInstance = segue.destination as? MoviesDetailsViewController {
+        if segue.identifier == SeguesIds.segueToMovieDetail, let movieDetailInstance = segue.destination as? MoviesDetailsViewController {
             movieDetailInstance.movie = movieSelected
         }
     }
@@ -94,7 +94,7 @@ extension SearchViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         movieSelected = resultsDataSource[indexPath.row]
-        performSegue(withIdentifier: Constants.Segues.segueToMovieDetail, sender: nil)
+        performSegue(withIdentifier: SeguesIds.segueToMovieDetail, sender: nil)
     }
 }
 
@@ -108,7 +108,7 @@ extension SearchViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIds.resultItemCellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIds.resultItemCellId, for: indexPath)
         
         if let cell = cell as? ResultItemTableViewCell{
             cell.setupCellWith(movie: resultsDataSource[indexPath.row])

@@ -12,10 +12,10 @@ import UIKit
 class SeriesViewController: UIViewController {
     
     //MARK: - Properties
-    private let segueIndetifierToSerieDetail = Constants.Segues.segueToSerieDetail
-    private let serieSectionCellId = Constants.cellIds.serieSectionCellId
-    private let sectionsTitles = Constants.Server.Series.sectionsTitles
-    private var seriesBySection = Constants.Server.Series.seriesBySection
+    private let segueIndetifierToSerieDetail = SeguesIds.segueToSerieDetail
+    private let serieSectionCellId = CellIds.serieSectionCellId
+    private let sectionsTitles = SeriesConstants.sectionsTitles
+    private var seriesBySection = SeriesConstants.seriesBySection
     private var viewModel: SerieViewModel!
     private var serieSelectedOnCollection:SerieData = SerieData.default
     
