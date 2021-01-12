@@ -58,6 +58,8 @@
 		24DADF2625580DE200D6ACB7 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DADF2525580DE200D6ACB7 /* Genre.swift */; };
 		24DADF2B25581C3800D6ACB7 /* MovieCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DADF2A25581C3800D6ACB7 /* MovieCredits.swift */; };
 		24E05187256FD546003B1BD9 /* Networks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E05186256FD546003B1BD9 /* Networks.swift */; };
+		24E9A4DC25AD7B2C00951ABD /* ExtensionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E9A4DB25AD7B2C00951ABD /* ExtensionHelper.swift */; };
+		24E9A4E425ADB9E400951ABD /* UITableview+setEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E9A4E325ADB9E400951ABD /* UITableview+setEmptyView.swift */; };
 		24EA709D252A067800FAA8D7 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EA709C252A067700FAA8D7 /* ApiService.swift */; };
 		24EAA0892506634E00B756C7 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAA0882506634E00B756C7 /* EndPoints.swift */; };
 		24EAA08B2506653500B756C7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAA08A2506653500B756C7 /* Movie.swift */; };
@@ -153,6 +155,8 @@
 		24DADF2525580DE200D6ACB7 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		24DADF2A25581C3800D6ACB7 /* MovieCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCredits.swift; sourceTree = "<group>"; };
 		24E05186256FD546003B1BD9 /* Networks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networks.swift; sourceTree = "<group>"; };
+		24E9A4DB25AD7B2C00951ABD /* ExtensionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHelper.swift; sourceTree = "<group>"; };
+		24E9A4E325ADB9E400951ABD /* UITableview+setEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableview+setEmptyView.swift"; sourceTree = "<group>"; };
 		24EA709C252A067700FAA8D7 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		24EAA0882506634E00B756C7 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		24EAA08A2506653500B756C7 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				246116D6258E30850098ED52 /* Result.swift */,
+				24E9A4DB25AD7B2C00951ABD /* ExtensionHelper.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				247A46FC2598DE9B0011526D /* Constants */,
+				24E9A4DA25AD794700951ABD /* Extensions */,
 				24BADD7924FE5F5E00635CDA /* Info.plist */,
 				24BADDA324FE879C00635CDA /* Models */,
 				24BADD9B24FE78A200635CDA /* Modules */,
@@ -476,6 +482,14 @@
 				246116CB258E2BBF0098ED52 /* ResultItemTableViewCell.xib */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		24E9A4DA25AD794700951ABD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				24E9A4E325ADB9E400951ABD /* UITableview+setEmptyView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		24EAA08C25066BE100B756C7 /* cells */ = {
@@ -795,6 +809,7 @@
 				24EAA08B2506653500B756C7 /* Movie.swift in Sources */,
 				2468EBE1251779C5004B83FC /* MovieViewModel.swift in Sources */,
 				24EA709D252A067800FAA8D7 /* ApiService.swift in Sources */,
+				24E9A4E425ADB9E400951ABD /* UITableview+setEmptyView.swift in Sources */,
 				242AA57425615D9800E77BE0 /* ProductionCompany.swift in Sources */,
 				24E05187256FD546003B1BD9 /* Networks.swift in Sources */,
 				24DADF1C25580D6300D6ACB7 /* CastMember.swift in Sources */,
@@ -814,6 +829,7 @@
 				242AA58725615E2D00E77BE0 /* Collection.swift in Sources */,
 				247C009825623BFE00C4BF5A /* LanguagesFlags.swift in Sources */,
 				24981F98254853FD0079541D /* PersonViewModel.swift in Sources */,
+				24E9A4DC25AD7B2C00951ABD /* ExtensionHelper.swift in Sources */,
 				24EC79832534745200D144D6 /* SectionSerieTableViewCell.swift in Sources */,
 				24BADDAC24FE938000635CDA /* ProfileViewController.swift in Sources */,
 				246A0580256A71280024562E /* Episode.swift in Sources */,

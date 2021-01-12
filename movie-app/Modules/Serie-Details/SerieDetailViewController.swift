@@ -50,7 +50,7 @@ class SerieDetailViewController: UIViewController {
     private func setupUi(){
         //Labels
         titleLabel.text = serie.name
-        languageLabel.text = "\(setupLanguage(serie: serie))"
+        languageLabel.text = "\(Utilities().setupLanguageLabel(originalLanguage: serie.originalLanguage ?? "en"))"
         inProductionLabel.text = serie.inProduction ?? true ? "In production" : "Finished"
         genreLabel.text = serie.genres?.first?.name ?? "N/A"
         seasonsLabel.text =
@@ -59,7 +59,8 @@ class SerieDetailViewController: UIViewController {
             Seasons
             """
         voteLabel.text = "\(serie.voteAverage ?? 0.0)"
-        setupViewVote(vote: serie.voteAverage ?? 0.0)
+        setupViewVote()
+        
         overviewTextView.text = serie.overview ?? "Overview not avaliable."
         
         //ImageView
@@ -141,18 +142,8 @@ class SerieDetailViewController: UIViewController {
         
     }
     
-    private func setupLanguage(serie:SerieData) -> String {
-        var languageText = "N/A"
-        for language in LanguagesFlags{
-            if (language.key == serie.originalLanguage){
-                languageText = language.value
-            }
-        }
-        
-        return languageText
-    }
     
-    private func setupViewVote(vote:Double){
+    private func setupViewVote(){
         voteView.layer.cornerRadius = voteView.frame.height / 2
         voteView.layer.borderWidth = 4
         voteView.layer.borderColor = UIColor(named: "secondary")?.cgColor
@@ -177,9 +168,13 @@ extension SerieDetailViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == self.castCollectionView{
+            
             personSelectedId = castDataSource[indexPath.row].id ?? 0
-        }else{
+        }else if collectionView == self.crewCollectionView{
+            
             personSelectedId = crewDataSource[indexPath.row].id ?? 0
+        }else{
+            return
         }
         
         performSegue(withIdentifier: SeguesIds.segueToPersonDetail, sender: nil)

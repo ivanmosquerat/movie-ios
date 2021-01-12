@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Utilities {
     
@@ -21,15 +22,20 @@ struct Utilities {
     }
     
     
-    func setupLanguage(movie:MovieData) -> String {
+    /// Set up the language label.
+    /// - Parameter movie: Object Movie.
+    /// - Returns: String of theanguage name in english with the flag.
+    func setupLanguageLabel(originalLanguage:String) -> String {
         
         var languageText = "N/A"
         for language in LanguagesFlags{
-            if (language.key == movie.originalLanguage){
+            if (language.key == originalLanguage){
                 languageText = language.value
             }
         }
         
         return languageText
     }
+    
+    
 }

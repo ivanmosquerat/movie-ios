@@ -32,7 +32,7 @@ class ResultItemTableViewCell: UITableViewCell {
         titleLabel.text = movie.title ?? "Title not available"
         voteLabel.text = "\(movie.voteAverage ?? 0.0)"
         
-        genreLabel.text = Utilities().setupLanguage(movie: movie)
+        genreLabel.text = Utilities().setupLanguageLabel(originalLanguage: movie.originalLanguage ?? "en")
         yearLabel.text = movie.releaseDate
         
         posterImageView.layer.cornerRadius = 5
