@@ -186,15 +186,28 @@ extension SerieDetailViewController:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if collectionView == self.seasonsCollectionView{
+        if collectionView == self.seasonsCollectionView && !seasonsDatasource.isEmpty{
+            
+            collectionView.myExtension.restore()
             return seasonsDatasource.count
             
-        }else if collectionView == self.castCollectionView{
+        }else if collectionView == self.castCollectionView && !castDataSource.isEmpty{
+            
+            collectionView.myExtension.restore()
             return castDataSource.count
             
-        }else{
+        }else if collectionView == self.crewCollectionView && !crewDataSource.isEmpty{
+            
+            collectionView.myExtension.restore()
             return crewDataSource.count
+            
+        }else{
+            
+            collectionView.myExtension.setEmptyView(title: "Data no available.", messsage: "Data no available.")
+            
+            return 0
         }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

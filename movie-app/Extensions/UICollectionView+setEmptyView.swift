@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension Extension where Base: UITableView{
+extension Extension where Base: UICollectionView{
     
     
     /// Set tableview content when it's empty.
@@ -52,12 +52,11 @@ extension Extension where Base: UITableView{
         messageLabel.textAlignment = .center
         
         self.base.backgroundView = emptyView
-        self.base.separatorStyle = .none
+        
         
     }
     
     func restore(){
         self.base.backgroundView =  nil
-        self.base.separatorStyle = .singleLine
     }
 }

@@ -31,4 +31,5 @@ public struct Extension<Base>{
 }
 
 extension UITableView: ExtensionHelperCompatible {}
+extension UICollectionView: ExtensionHelperCompatible {}
 

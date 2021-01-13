@@ -102,6 +102,12 @@ extension SearchViewController:UITableViewDelegate{
 extension SearchViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if resultsDataSource.count == 0{
+            tableView.myExtension.setEmptyView(title: "No results", messsage: "No results.")
+        }else{
+            tableView.myExtension.restore()
+        }
+        
         return resultsDataSource.count
     }
     
