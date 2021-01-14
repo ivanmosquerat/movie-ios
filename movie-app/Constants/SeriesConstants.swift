@@ -23,4 +23,6 @@ struct SeriesConstants {
     static let popularSeries = "\(EndPoints.domain)\(EndPoints.Series.popularSeries)\(EndPoints.apiKey)"
     
     static let ratedSeries = "\(EndPoints.domain)\(EndPoints.Series.ratedSeries)\(EndPoints.apiKey)"
+    
+    static let search = "\(EndPoints.domain)search/tv\(EndPoints.apiKey)&query="
 }

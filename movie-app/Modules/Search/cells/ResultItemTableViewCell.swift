@@ -27,7 +27,7 @@ class ResultItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupCellWith(movie:MovieData){
+    func setupCellWithMovie(movie:MovieData){
         
         titleLabel.text = movie.title ?? "Title not available"
         voteLabel.text = "\(movie.voteAverage ?? 0.0)"
@@ -38,6 +38,20 @@ class ResultItemTableViewCell: UITableViewCell {
         posterImageView.layer.cornerRadius = 5
         posterImageView.layer.masksToBounds = true
         posterImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(movie.posterPath ?? "")"))
+    }
+    
+    
+    func setupCellWithSerie(serie:SerieData){
+        
+        titleLabel.text = serie.name ?? "Name not available"
+        voteLabel.text = "\(serie.voteAverage ?? 0.0)"
+        
+        genreLabel.text = Utilities().setupLanguageLabel(originalLanguage: serie.originalLanguage ?? "en")
+        yearLabel.text = serie.firstAirDate
+        
+        posterImageView.layer.cornerRadius = 5
+        posterImageView.layer.masksToBounds = true
+        posterImageView.kf.setImage(with: URL(string: "\(EndPoints.imageUrlBase)\(serie.posterPath ?? "")"))
     }
     
 }

@@ -183,10 +183,8 @@ class ApiService: NSObject {
     // MARK: - Search methods
     func getSearchMovie(completion: @escaping ([MovieData]) -> (), url: String, query: String){
         
-        //guard let url = "\(url)\(query)" else { return }
-        
+      
         let urlRequest = Utilities().encodingUrl(urlString: "\(url)\(query)")
-        debugPrint(urlRequest)
         
         AF.request(urlRequest, method: .get, parameters: nil).response{(response: AFDataResponse<Data?>) in
             
@@ -204,8 +202,34 @@ class ApiService: NSObject {
                 }
                 
             case .failure(let error):
+                NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
+            }
+        }
+    }
+    
+    func getSearchSerie(completion: @escaping ([SerieData]) -> (), url: String, query: String){
+        
+        let urlRquest = Utilities().encodingUrl(urlString: "\(url)\(query)")
+        
+        AF.request(urlRquest, method: .get, parameters: nil).response { (response: AFDataResponse<Data?>) in
+            
+            switch response.result{
+            
+            case .success(_):
+                 
+                if response.response?.statusCode == 200{
+                    
+                    if let data = response.data{
+                        let dataFromService = try! JSONDecoder().decode(Serie.self, from: data)
+                        completion(dataFromService.results)
+                    }
+                    
+                }else{
+                    
+                    NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
+                }
                 
-                debugPrint(error)
+            case .failure(_):
                 
                 NotificationBanner(title: "Error", subtitle: response.error?.errorDescription, leftView: nil, rightView: nil, style: .warning, colors: nil).show()
             }
